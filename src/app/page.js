@@ -1,7 +1,15 @@
-export default function Home() {
+import { sql } from "@vercel/postgres";
+
+export default async function Cart() {
+  const { rows } = await sql`SELECT * from users`;
+  console.log(rows);
   return (
-    <main>
-        <h1>hellow jiiiiiiiii</h1>
-    </main>
+    <div>
+      {rows.map((row) => (
+        <div key={row.id}>
+          <h1>{row.name}</h1>
+        </div>
+      ))}
+    </div>
   );
 }

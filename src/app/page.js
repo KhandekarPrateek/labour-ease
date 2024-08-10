@@ -2,8 +2,9 @@ import Navbar from "./components/Navbar";
 import { sql } from "@vercel/postgres";
 
 export default async function Home() {
-  const { rows } = await sql`SELECT * from users`;
-  console.log(rows);
+  // const { rows } = await sql`SELECT * from users`;
+  // console.log(rows);
+
   return (
     <main>
       <Navbar />

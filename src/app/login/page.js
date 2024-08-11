@@ -18,30 +18,30 @@ export default function Login() {
   };
 
   const handleOnSubmit = async (e) => {
-    e.preventDefault();
+    console.log("commented out rn ");
+    // e.preventDefault();
 
-    try {
-      const response = await fetch("/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    // try {
+    //   const response = await fetch("/api/login", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(formData),
+    //   });
 
-      if (response.ok) {
-        const data = await response.json();
-        toast.success(data.message);
-        // Handle successful login (e.g., redirect to dashboard)
-      } else {
-        const errorData = await response.json();
-        toast.error(errorData.message);
-      }
-    } catch (error) {
-      toast.error("Failed to login");
-    }
+    //   if (response.ok) {
+    //     const data = await response.json();
+    //     toast.success(data.message);
+    //     // Handle successful login (e.g., redirect to dashboard)
+    //   } else {
+    //     const errorData = await response.json();
+    //     toast.error(errorData.message);
+    //   }
+    // } catch (error) {
+    //   toast.error("Failed to login");
+    // }
   };
-
 
   return (
     <div className="login-container">
@@ -77,17 +77,11 @@ export default function Login() {
           </button>
         </form>
         <div className="mt-4 text-center">
-          <a
-            href="/"
-            className="form-link"
-          >
+          <a href="/" className="form-link">
             Go to Home
           </a>
           <br />
-          <a
-            href="/register"
-            className="form-link"
-          >
+          <a href="/register" className="form-link">
             Register
           </a>
         </div>

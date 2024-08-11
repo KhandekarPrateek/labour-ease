@@ -11,7 +11,7 @@ export default function Register() {
     email: "",
     createPassword: "",
     confirmPassword: "",
-    typeOfUser: ""
+    typeOfUser: "",
   });
 
   function changeHandler(event) {
@@ -19,7 +19,7 @@ export default function Register() {
       const { name, value, checked, type } = event.target;
       return {
         ...prevFormData,
-        [name]: type === "checkbox" ? checked : value
+        [name]: type === "checkbox" ? checked : value,
       };
     });
   }
@@ -27,28 +27,28 @@ export default function Register() {
   async function submitHandler(event) {
     event.preventDefault();
 
-    if (formData.createPassword === formData.confirmPassword) {
-      const response = await fetch("/api/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      });
+    // if (formData.createPassword === formData.confirmPassword) {
+    //   const response = await fetch("/api/register", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json"
+    //     },
+    //     body: JSON.stringify(formData)
+    //   });
 
-      if (response.ok) {
-        toast.success("You are registered successfully");
-      } else {
-        toast.error("Failed to register");
-      }
-    } else {
-      toast.error("createPassword and confirmPassword does not match");
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        createPassword: "",
-        confirmPassword: ""
-      }));
-    }
+    //   if (response.ok) {
+    //     toast.success("You are registered successfully");
+    //   } else {
+    //     toast.error("Failed to register");
+    //   }
+    // } else {
+    //   toast.error("createPassword and confirmPassword does not match");
+    //   setFormData((prevFormData) => ({
+    //     ...prevFormData,
+    //     createPassword: "",
+    //     confirmPassword: ""
+    //   }));
+    // }
   }
   return (
     <div className="register-container">

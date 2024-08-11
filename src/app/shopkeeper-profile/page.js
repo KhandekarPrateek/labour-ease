@@ -1,14 +1,14 @@
-"use client"
-import React, { useState } from 'react';
+"use client";
+import React, { useState } from "react";
 
 const ShopkeeperProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   const [profile, setProfile] = useState({
-    shopName: 'John\'s Shop',
-    email: 'john.shop@example.com',
-    address: '123 Shop Street, Shop City',
-    bio: 'A short bio about John\'s Shop.',
+    shopName: "John's Shop",
+    email: "john.shop@example.com",
+    address: "123 Shop Street, Shop City",
+    bio: "A short bio about John's Shop.",
   });
 
   const handleChange = (e) => {
@@ -19,10 +19,30 @@ const ShopkeeperProfilePage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsEditing(false);
-    console.log('Profile updated:', profile);
+    console.log("Profile updated:", profile);
+
+    // try {
+    //   const response = await fetch("/api/updateProfile", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(formData),
+    //   });
+
+    //   if (response.ok) {
+    //     const data = await response.json();
+    //     toast.success(data.message);
+    //   } else {
+    //     const errorData = await response.json();
+    //     toast.error(errorData.message);
+    //   }
+    // } catch (error) {
+    //   toast.error("Failed to login");
+    // }
   };
 
   return (
@@ -74,8 +94,14 @@ const ShopkeeperProfilePage = () => {
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary">Save Changes</button>
-            <button type="button" className="btn btn-secondary ms-2" onClick={() => setIsEditing(false)}>
+            <button type="submit" className="btn btn-primary">
+              Save Changes
+            </button>
+            <button
+              type="button"
+              className="btn btn-secondary ms-2"
+              onClick={() => setIsEditing(false)}
+            >
               Cancel
             </button>
           </form>
@@ -83,11 +109,24 @@ const ShopkeeperProfilePage = () => {
       ) : (
         <div className="card p-4">
           <h2 className="card-title">Shop Profile</h2>
-          <p><strong>Shop Name:</strong> {profile.shopName}</p>
-          <p><strong>Email:</strong> {profile.email}</p>
-          <p><strong>Address:</strong> {profile.address}</p>
-          <p><strong>Bio:</strong> {profile.bio}</p>
-          <button className="btn btn-primary" onClick={() => setIsEditing(true)}>Edit Profile</button>
+          <p>
+            <strong>Shop Name:</strong> {profile.shopName}
+          </p>
+          <p>
+            <strong>Email:</strong> {profile.email}
+          </p>
+          <p>
+            <strong>Address:</strong> {profile.address}
+          </p>
+          <p>
+            <strong>Bio:</strong> {profile.bio}
+          </p>
+          <button
+            className="btn btn-primary"
+            onClick={() => setIsEditing(true)}
+          >
+            Edit Profile
+          </button>
         </div>
       )}
     </div>

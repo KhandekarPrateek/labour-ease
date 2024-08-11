@@ -1,56 +1,60 @@
+"use client";
+import { useState } from "react";
 import "./page.css";
+
 export default function Login() {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
+
+  const { email, password } = formData;
+
+  const handleOnChange = (e) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    // backend code will come here
+  };
+
   return (
-    <div className="centered-container">
-      <div className="form-wrapper">
-        <h1 className="form-heading">Login</h1>
-        <form>
-          <div>
-            <label className="form-label" htmlFor="email">
-              Email:
-            </label>
+    <div className="login-container">
+      <div className="login-box">
+        <h2 className="login-heading">Login</h2>
+        <form onSubmit={handleOnSubmit}>
+          <label className="login-label">
+            Email Address
             <input
+              required
               type="email"
               name="email"
-              id="email"
-              className="form-input"
+              value={email}
+              onChange={handleOnChange}
+              className="login-input"
               placeholder="Enter your email"
             />
-          </div>
-          <div>
-            <label className="form-label" htmlFor="password">
-              Password:
-            </label>
+          </label>
+          <label className="login-label">
+            Password
             <input
+              required
               type="password"
               name="password"
-              id="password"
-              className="form-input"
+              value={password}
+              onChange={handleOnChange}
+              className="login-input"
               placeholder="Enter your password"
             />
-          </div>
-          <button
-            type="submit"
-            className="form-button"
-          >
-            Login
+          </label>
+          <button type="submit" className="login-button">
+            Sign In
           </button>
         </form>
-        <div className="mt-4 text-center">
-          <a
-            href="/"
-            className="form-link"
-          >
-            Go to Home
-          </a>
-          <br />
-          <a
-            href="/register"
-            className="form-link"
-          >
-            Register
-          </a>
-        </div>
       </div>
     </div>
   );

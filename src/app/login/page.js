@@ -55,6 +55,21 @@ export default function Login() {
             Sign In
           </button>
         </form>
+        <div className="mt-4 text-center">
+          <a
+            href="/"
+            className="form-link"
+          >
+            Go to Home
+          </a>
+          <br />
+          <a
+            href="/register"
+            className="form-link"
+          >
+            Register
+          </a>
+        </div>
       </div>
     </div>
   );

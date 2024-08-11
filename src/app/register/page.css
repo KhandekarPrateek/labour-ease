@@ -1,0 +1,114 @@
+/* page.css */
+
+/* General styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #e9ecef;
+  margin: 0;
+  padding: 0;
+}
+
+/* Register container styles */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Register form styles */
+.register-form {
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 600px;
+  max-width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form heading styles */
+.register-form h1 {
+  color: #333;
+  font-size: 28px;
+  animation: fadeIn 0.5s ease-in-out 0.2s;
+}
+
+/* Form field styles */
+.register-form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #555;
+  animation: fadeIn 0.5s ease-in-out 0.4s;
+}
+
+.register-form input[type="text"],
+.register-form input[type="email"],
+.register-form input[type="password"] {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-sizing: border-box;
+  animation: fadeIn 0.5s ease-in-out 0.6s;
+}
+
+.register-form input[type="radio"] {
+  margin-right: 15px;
+  animation: fadeIn 0.5s ease-in-out 0.8s;
+}
+
+.register-form label[for="isShopkeeper"],
+.register-form label[for="isWorker"] {
+  display: inline-block;
+  margin-bottom: 20px;
+  animation: fadeIn 0.5s ease-in-out 0.8s;
+}
+
+/* Submit button styles */
+.register-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  animation: fadeIn 0.5s ease-in-out 1s;
+}
+
+.register-button:hover {
+  background-color: #0056b3;
+}
+
+/* Link styles */
+.register-link {
+  color: #007bff;
+  text-decoration: none;
+  animation: fadeIn 0.5s ease-in-out 1.2s;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+  .register-form {
+    width: 90%;
+    padding: 20px;
+  }
+}

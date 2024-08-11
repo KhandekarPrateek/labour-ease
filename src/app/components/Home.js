@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import JobSlider from "./JobSlider";
+import "./Home.css";
 
 export default function Home() {
   return (

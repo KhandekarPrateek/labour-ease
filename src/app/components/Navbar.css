@@ -1,0 +1,73 @@
+
+.navbar {
+    background-color: #2d3748; 
+    color: #edf2f7; 
+    padding: .5rem 2rem; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  }
+  
+
+  .navbar-brand {
+    font-size: 1.75rem; 
+    font-weight: 700; 
+    color: #0b0b0b; 
+    text-decoration: none; 
+  }
+  
+  .navbar-brand:hover {
+    color: #198eae; 
+  }
+  
+  
+  .navbar-toggler {
+    background: none; 
+    border: none; 
+  }
+  
+  .navbar-toggler-icon {
+    width: 24px;
+    height: 24px;
+    background: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24"%3E%3Cpath stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /%3E%3C/svg%3E') center center no-repeat;
+  }
+  .navbar-nav{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    
+  }
+  .navbar-nav .nav-item {
+    margin: 0 1rem; 
+    
+  }
+  .nav-link {
+    text-decoration: none; 
+    color: #000; 
+  }
+  
+  
+  .signup-link {
+    display: inline-block; 
+    padding: 0.75rem 2rem; 
+    background-color: #3182ce; 
+    color: #ffffff; 
+    border-radius: 4px; 
+    font-size: 1rem; 
+    transition: background-color 0.3s ease, color 0.3s ease; 
+  }
+  
+  
+  .signup-link:hover {
+    background-color: #45688d; 
+    color: #e2e8f0; 
+  }
+  
+  
+  .signup-link:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px rgba(49, 130, 206, 0.5); 
+  
+  }
+
+  

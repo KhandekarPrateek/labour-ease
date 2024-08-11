@@ -28,11 +28,19 @@ export default function Register() {
     event.preventDefault();
 
     if (formData.createPassword === formData.confirmPassword) {
-      const password = formData.createPassword;
-      toast.success("You are registered successfully");
-      // await sql
-      // INSERT INTO users (firstName, lastName, email,password,typeOfUser)
-      // VALUES (${formData.firstName}, ${formData.lastName}, ${email},${password},${formData.typeOfUser});
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        toast.success("You are registered successfully");
+      } else {
+        toast.error("Failed to register");
+      }
     } else {
       toast.error("createPassword and confirmPassword does not match");
       setFormData((prevFormData) => ({
@@ -42,7 +50,6 @@ export default function Register() {
       }));
     }
   }
-
   return (
     <div className="register-container">
       <div className="register-form">

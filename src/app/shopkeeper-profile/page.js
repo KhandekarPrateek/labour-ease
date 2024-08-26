@@ -1,14 +1,18 @@
 "use client";
+
 import React, { useState } from 'react';
 import './page.css'; 
+
 
 const ShopkeeperProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
 
   const [profile, setProfile] = useState({
     shopName: "John's Shop",
+
     email: 'john.shop@example.com',
     address: '123 Shop Street, Shop City',
+
     bio: "A short bio about John's Shop.",
   });
 
@@ -20,10 +24,30 @@ const ShopkeeperProfilePage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsEditing(false);
-    console.log('Profile updated:', profile);
+    console.log("Profile updated:", profile);
+
+    // try {
+    //   const response = await fetch("/api/updateProfile", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify(formData),
+    //   });
+
+    //   if (response.ok) {
+    //     const data = await response.json();
+    //     toast.success(data.message);
+    //   } else {
+    //     const errorData = await response.json();
+    //     toast.error(errorData.message);
+    //   }
+    // } catch (error) {
+    //   toast.error("Failed to login");
+    // }
   };
 
   return (
@@ -120,6 +144,7 @@ const ShopkeeperProfilePage = () => {
           </>
         )}
       </div>
+
     </div>
   );
 };

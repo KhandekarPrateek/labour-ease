@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import "./page.css";
+import toast from "react-hot-toast";
+
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -19,28 +21,28 @@ export default function Login() {
 
   const handleOnSubmit = async (e) => {
     console.log("commented out rn ");
-    // e.preventDefault();
+    e.preventDefault();
 
-    // try {
-    //   const response = await fetch("/api/login", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    //   if (response.ok) {
-    //     const data = await response.json();
-    //     toast.success(data.message);
-    //     // Handle successful login (e.g., redirect to dashboard)
-    //   } else {
-    //     const errorData = await response.json();
-    //     toast.error(errorData.message);
-    //   }
-    // } catch (error) {
-    //   toast.error("Failed to login");
-    // }
+      if (response.ok) {
+        const data = await response.json();
+        toast.success(data.message);
+        // Handle successful login (e.g., redirect to dashboard)
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.message);
+      }
+    } catch (error) {
+      toast.error("Failed to login");
+    }
   };
 
   return (

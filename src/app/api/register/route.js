@@ -4,7 +4,6 @@ export async function POST(req) {
   const { username, password, email, role } = await req.json();
 
   try {
-    // Insert the new user into the database
     await sql`
       INSERT INTO users (username, password, email, role)
       VALUES (${username}, ${password}, ${email}, ${role})

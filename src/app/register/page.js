@@ -1,86 +1,77 @@
 "use client";
+
 import { useState } from "react";
-import { sql } from "@vercel/postgres";
 import toast from "react-hot-toast";
 import "./page.css";
 
 export default function Register() {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    username: "",
     email: "",
-    createPassword: "",
+    password: "",
     confirmPassword: "",
-    typeOfUser: "",
+    role: "shopkeeper", // Default role
   });
 
   function changeHandler(event) {
-    setFormData((prevFormData) => {
-      const { name, value, checked, type } = event.target;
-      return {
-        ...prevFormData,
-        [name]: type === "checkbox" ? checked : value,
-      };
-    });
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   }
 
   async function submitHandler(event) {
     event.preventDefault();
 
-    // if (formData.createPassword === formData.confirmPassword) {
-    //   const response = await fetch("/api/register", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json"
-    //     },
-    //     body: JSON.stringify(formData)
-    //   });
+    if (formData.password !== formData.confirmPassword) {
+      toast.error("Passwords do not match");
+      return;
+    }
 
-    //   if (response.ok) {
-    //     toast.success("You are registered successfully");
-    //   } else {
-    //     toast.error("Failed to register");
-    //   }
-    // } else {
-    //   toast.error("createPassword and confirmPassword does not match");
-    //   setFormData((prevFormData) => ({
-    //     ...prevFormData,
-    //     createPassword: "",
-    //     confirmPassword: ""
-    //   }));
-    // }
+    try {
+      const response = await fetch("/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          username: formData.username,
+          email: formData.email,
+          password: formData.password,
+          role: formData.role,
+        }),
+      });
+
+      if (response.ok) {
+        toast.success("You are registered successfully");
+      } else {
+        const errorData = await response.json();
+        toast.error(errorData.error);
+      }
+    } catch (error) {
+      toast.error("Failed to register");
+    }
   }
+
   return (
     <div className="register-container">
       <div className="register-form">
         <h1 className="text-2xl font-bold mb-4">Register</h1>
         <form onSubmit={submitHandler}>
           <div>
-            <label className="register-label" htmlFor="firstName">
-              First Name:
+            <label className="register-label" htmlFor="username">
+              Username:
             </label>
             <input
               type="text"
-              placeholder="First Name"
+              placeholder="Username"
               onChange={changeHandler}
-              name="firstName"
-              id="firstName"
-              value={formData.firstName}
+              name="username"
+              id="username"
+              value={formData.username}
               className="register-input"
-            />
-          </div>
-          <div>
-            <label className="register-label" htmlFor="lastName">
-              Last Name:
-            </label>
-            <input
-              type="text"
-              placeholder="Last Name"
-              onChange={changeHandler}
-              name="lastName"
-              id="lastName"
-              value={formData.lastName}
-              className="register-input"
+              required
             />
           </div>
           <div>
@@ -95,41 +86,22 @@ export default function Register() {
               id="email"
               value={formData.email}
               className="register-input"
+              required
             />
-          </div>
-          <div className="register-radio-group">
-            <input
-              type="radio"
-              onChange={changeHandler}
-              name="typeOfUser"
-              id="isShopkeeper"
-              value="Shopkeeper"
-              checked={formData.typeOfUser === "Shopkeeper"}
-            />
-            <label htmlFor="isShopkeeper">Shopkeeper</label>
-
-            <input
-              type="radio"
-              onChange={changeHandler}
-              name="typeOfUser"
-              id="isWorker"
-              value="Worker"
-              checked={formData.typeOfUser === "Worker"}
-            />
-            <label htmlFor="isWorker">Worker</label>
           </div>
           <div>
-            <label className="register-label" htmlFor="createPassword">
-              Create Password:
+            <label className="register-label" htmlFor="password">
+              Password:
             </label>
             <input
               type="password"
-              placeholder="Create Password"
+              placeholder="Password"
               onChange={changeHandler}
-              name="createPassword"
-              id="createPassword"
-              value={formData.createPassword}
+              name="password"
+              id="password"
+              value={formData.password}
               className="register-input"
+              required
             />
           </div>
           <div>
@@ -144,7 +116,30 @@ export default function Register() {
               id="confirmPassword"
               value={formData.confirmPassword}
               className="register-input"
+              required
             />
+          </div>
+          <div className="register-radio-group">
+            <label>
+              <input
+                type="radio"
+                onChange={changeHandler}
+                name="role"
+                value="shopkeeper"
+                checked={formData.role === "shopkeeper"}
+              />
+              Shopkeeper
+            </label>
+            <label>
+              <input
+                type="radio"
+                onChange={changeHandler}
+                name="role"
+                value="labour"
+                checked={formData.role === "labour"}
+              />
+              Labour
+            </label>
           </div>
           <button type="submit" className="register-button">
             Submit

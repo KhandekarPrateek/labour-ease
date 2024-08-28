@@ -4,12 +4,14 @@ import "./page.css";
 import Image from 'next/image';
 
 import toast from "react-hot-toast";
+import { useRouter } from 'next/navigation';
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+  const router = useRouter()
 
   const { email, password } = formData;
 
@@ -36,6 +38,13 @@ export default function Login() {
         const data = await response.json();
         toast.success(data.message);
         // Handle successful login (e.g., redirect to dashboard)
+        console.log(data.role)
+        if(data.role==='shopkeeper'){
+          router.push('/shopkeeper-dashboard');
+
+        }else{
+          router.push('/employee-dashboard')
+        }
       } else {
         const errorData = await response.json();
         toast.error(errorData.message);

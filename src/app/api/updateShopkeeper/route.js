@@ -12,7 +12,6 @@ export async function GET(request) {
       SELECT * FROM shopkeepers
       WHERE id = ${id}
     `;
-    console.log(result);
 
     if (result.rows.length > 0) {
       return NextResponse.json(result.rows[0]);

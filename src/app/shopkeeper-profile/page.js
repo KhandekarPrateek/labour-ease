@@ -2,22 +2,17 @@
 
 import React, { useState, useEffect } from 'react';
 import './page.css';
+import './spinner.css';  // Import the spinner CSS
 
 const ShopkeeperProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [profile, setProfile] = useState({
-    id: 299,
-    shop_name: "John's Shop",
-    shop_address: '123 Shop Street, Shop City',
-    shop_phone: '9102934241',
-    created_at: '',
-    updated_at: ''
-  });
+  const [profile, setProfile] = useState(null); // Initialize profile as null
+  const [loading, setLoading] = useState(true); // Initialize loading as true
 
   useEffect(() => {
     const fetchShopkeeperData = async () => {
       try {
-        const response = await fetch(`/api/updateShopkeeper?id=${profile.id}`);
+        const response = await fetch(`/api/updateShopkeeper?id=299`); // Adjusted for initial fetch
         if (response.ok) {
           const data = await response.json();
           setProfile(data);
@@ -26,11 +21,13 @@ const ShopkeeperProfilePage = () => {
         }
       } catch (error) {
         console.error('Error fetching shopkeeper data:', error);
+      } finally {
+        setLoading(false); // Set loading to false after the data is fetched
       }
     };
-  
+
     fetchShopkeeperData();
-  }, [profile.id]);
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,7 +40,7 @@ const ShopkeeperProfilePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsEditing(false);
-  
+
     try {
       const response = await fetch("/api/updateShopkeeper", {
         method: "POST",
@@ -64,6 +61,14 @@ const ShopkeeperProfilePage = () => {
       console.error("Failed to update profile", error);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="spinner-container">
+        <div className="loader"></div>
+      </div>
+    ); // Display the spinner while loading
+  }
 
   return (
     <div className={`background-container ${isEditing ? 'blurred' : ''} d-flex align-items-center justify-content-center vh-100`}>

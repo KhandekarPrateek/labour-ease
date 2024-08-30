@@ -55,7 +55,7 @@ export default function Contact() {
             </div>
             <div className="mb-3">
               <label htmlFor="user_email" className="form-label">
-                Email
+                Email 
               </label>
               <input
                 type="email"

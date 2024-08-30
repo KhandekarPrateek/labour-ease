@@ -1,0 +1,107 @@
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1.display-1 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #2c3e50;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 25px rgba(0, 0, 0, 0.1);
+    padding-top: 70px;
+   
+    padding-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    h1.display-1 {
+        font-size: 2.5rem;
+    }
+}
+
+.accordion-button {
+    background-color: #dbdbdb;
+    border: 1px solid #ddd;
+    border-radius: 0.25rem;
+    padding: 15px;
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #333;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: #032244;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #04274d;
+    background-color: #e9ecef;
+    border-color: #042549;
+}
+
+.accordion-button::after {
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+    line-height: 1em;
+    transition: transform 0.2s ease;
+}
+
+.accordion-button.collapsed::after {
+    transform: rotate(-90deg);
+}
+
+.accordion-body {
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
+.col {
+    margin-bottom: 20px;
+}
+.got-questions {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .get-in-touch-btn {
+    background-color: #4CAF50; /* Green */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .get-in-touch-btn:hover {
+    background-color: #3e8e41; /* Dark Green */
+  }
+
+@media (max-width: 768px) {
+    .col {
+        padding: 0;
+    }
+    
+    .accordion-button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    h1.display-1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+}

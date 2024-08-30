@@ -2,7 +2,7 @@ import Link from 'next/link';
 import './Navbar.css';
 
 const Navbar = () => {
-  const userRole = "shopkeeper"
+  const userRole = "shopkeeper";
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
@@ -12,7 +12,6 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            
             {/* Add other menu items here */}
           </ul>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
@@ -23,11 +22,13 @@ const Navbar = () => {
               <Link href="/register" className="nav-link signup-link">Sign-Up</Link>
             </li>
             <li className="nav-item">
-            <Link href={userRole === 'shopkeeper' ? '/shopkeeper-profile' : '/employee-profile'} className="nav-link">
-                  {userRole === 'shopkeeper' ? 'Shopkeeper Profile' : 'Employee Profile'}
-                </Link>
+              <Link href="/events" className="nav-link">Events</Link>
             </li>
-            
+            <li className="nav-item">
+              <Link href={userRole === 'shopkeeper' ? '/shopkeeper-profile' : '/employee-profile'} className="nav-link">
+                {userRole === 'shopkeeper' ? 'Shopkeeper Profile' : 'Employee Profile'}
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

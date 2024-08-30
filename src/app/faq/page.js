@@ -5,7 +5,8 @@ export default function faq() {
   
 
   return (
-    <div className="container text-center">
+    <div className='flex flex-col mt-20'>
+        <div style={{ marginTop: 24 }} className="container text-center">
       <h1 className="display-1">Frequently Asked Questions</h1>
       <div className="row">
         <div className="col">
@@ -139,8 +140,10 @@ export default function faq() {
       </div>
       <div className="got-questions">Got any more questions ?</div>
       <div>
-      <button type="button" class="btn btn-outline-info" ><a href="/contact">Get In Touch</a></button>
-      </div>
+  <button type="button" className="btn btn-outline-info" style={{ color: 'white' }}><a href="/contact" style={{ color: 'white', textDecoration: 'none' }}>Get In Touch</a></button>
+</div>
     </div>
+    </div>
+
   );
 }

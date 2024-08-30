@@ -1,107 +1,105 @@
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
-}
+/* ====== FAQ Section Start ====== */
 
-h1.display-1 {
-    font-size: 3rem;
-    margin-bottom: 40px;
-    color: #2c3e50;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    line-height: 1.2;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1), 0 0 25px rgba(0, 0, 0, 0.1);
-    padding-top: 70px;
-   
-    padding-bottom: 10px;
-}
+section {
+    position: relative;
+    z-index: 20;
+    overflow: hidden;
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    margin-top: 100px; /* added margin top */
+  }
 
-@media (max-width: 768px) {
-    h1.display-1 {
-        font-size: 2.5rem;
-    }
-}
-
-.accordion-button {
-    background-color: #dbdbdb;
-    border: 1px solid #ddd;
-    border-radius: 0.25rem;
-    padding: 15px;
-    font-size: 1.125rem;
-    font-weight: 500;
-    color: #333;
-    transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.accordion-button:focus {
-    box-shadow: none;
-    border-color: #032244;
-}
-
-.accordion-button:not(.collapsed) {
-    color: #04274d;
-    background-color: #e9ecef;
-    border-color: #042549;
-}
-
-.accordion-button::after {
-    content: "\f078";
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    display: inline-block;
-    width: 1em;
-    height: 1em;
-    text-align: center;
-    line-height: 1em;
-    transition: transform 0.2s ease;
-}
-
-.accordion-button.collapsed::after {
-    transform: rotate(-90deg);
-}
-
-.accordion-body {
-    padding: 15px;
-    background-color: #f8f9fa;
-    border-top: 1px solid #ddd;
-}
-
-.col {
-    margin-bottom: 20px;
-}
-.got-questions {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+  
+  section.dark {
+    background-color: #dark;
   }
   
-  .get-in-touch-btn {
-    background-color: #4CAF50; /* Green */
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
+  section > div {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  section > div > span {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #337ab7;
+  }
+  
+  section > div > h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+  section > div > p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #666;
+  }
+  
+  .accordion {
+    margin-top: 30px;
+  }
+  
+  .accordion-item {
+    margin-bottom: 20px;
+  }
+  
+  .accordion-header {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
     cursor: pointer;
   }
   
-  .get-in-touch-btn:hover {
-    background-color: #3e8e41; /* Dark Green */
+  .accordion-header button {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
   }
-
-@media (max-width: 768px) {
-    .col {
-        padding: 0;
-    }
-    
-    .accordion-button {
-        font-size: 1rem;
-        padding: 10px;
-    }
-
-    h1.display-1 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-    }
-}
+  
+  .accordion-header button:focus {
+    box-shadow: none;
+  }
+  
+  .accordion-collapse {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .accordion-body {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #666;
+  }
+  
+  .got-questions {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  button.btn-outline-info {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #337ab7;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  button.btn-outline-info:hover {
+    background-color: #23527c;
+  }
+  
+  /* ====== FAQ Section End ====== */

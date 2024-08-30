@@ -23,8 +23,8 @@ export default function Home() {
           </div>
           <div className="image-container">
             <Image
-            width={100}
-            height={100}
+            width={400}
+            height={400}
               src="/images/heroS.jpg"
               alt="hero"
               className="img-fluid"

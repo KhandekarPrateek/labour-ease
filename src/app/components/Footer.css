@@ -1,11 +1,11 @@
 footer.footer-dark {
-    background-color: #706f6f;
+    background-color: #ede6e6;
     color: #fff;
     padding: 20px;
 }
 
 footer .accordion-button {
-    background-color: #dad6d6;
+    background-color: #edecec;
     border: 1px solid #555;
     color: #414141;
     font-size: 1.125rem;
@@ -17,9 +17,9 @@ footer .accordion-button {
 
 footer .accordion-button:hover,
 footer .accordion-button:focus {
-    background-color: #a0a0a0;
+    background-color: #e3dfdf;
     border-color: #666;
-    color: #f0f0f0;
+    color: #6f6c6c;
 }
 
 footer .accordion-button:not(.collapsed) {
@@ -28,7 +28,7 @@ footer .accordion-button:not(.collapsed) {
 }
 
 footer .accordion-body {
-    background-color: #d3d0d0;
+    background-color: #dedcdc;
     color: #474646;
     padding: 15px;
     border-top: 1px solid #444;

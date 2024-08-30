@@ -2,6 +2,8 @@ import React from 'react';
 import "./page.css";
 
 export default function faq() {
+  
+
   return (
     <div className="container text-center">
       <h1 className="display-1">Frequently Asked Questions</h1>
@@ -134,6 +136,10 @@ export default function faq() {
             </div>
           </div>
         </div>
+      </div>
+      <div className="got-questions">Got any more questions ?</div>
+      <div>
+      <button type="button" class="btn btn-outline-info" ><a href="/contact">Get In Touch</a></button>
       </div>
     </div>
   );

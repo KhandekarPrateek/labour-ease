@@ -5,10 +5,10 @@ export default function Footer() {
   return (
     <div>
       <footer
-        className="footer "
+        className="footer  footer-light"
         style={{
-          backgroundColor: "#333" /* dark grey background */,
-          color: "#fff" /* white text color */,
+          backgroundColor: "#edecec" /* light grey background */,
+          color: "#333" /* dark grey text color */,
           padding: "20px" /* add some padding to the footer */,
         }}
       >

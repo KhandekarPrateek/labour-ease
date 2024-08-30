@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import JobSlider from "./JobSlider";
 import Footer from "./Footer";
 import "./Home.css";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -21,7 +22,9 @@ export default function Home() {
             </p>
           </div>
           <div className="image-container">
-            <img
+            <Image
+            width={100}
+            height={100}
               src="/images/heroS.jpg"
               alt="hero"
               className="img-fluid"

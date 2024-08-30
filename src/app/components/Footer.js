@@ -87,7 +87,7 @@ export default function Footer() {
         </div>
         <div className="container">
           <p>
-            <a href="/faq">More FAQ'S</a>
+            <a href="/faq">More FAQ</a>
           </p>
         </div>
         <div className="container">

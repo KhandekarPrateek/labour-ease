@@ -16,7 +16,7 @@ export default function faq() {
               </h2>
               <div id="flush-collapseOne" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
                 <div className="accordion-body">
-                  To request a laborer, simply log in to our platform and navigate to the "Request Labor" section. Enter the details of the task, your shop’s location, and the required time frame. Once submitted, we will match you with a suitable laborer based on your needs.
+                  To request a laborer, simply log in to our platform and navigate to the &quot;Request Labor&quot; section. Enter the details of the task, your shop&rsquo;s location, and the required time frame. Once submitted, we will match you with a suitable laborer based on your needs.
                 </div>
               </div>
             </div>
@@ -80,7 +80,7 @@ export default function faq() {
               </h2>
               <div id="flush-collapseSix" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample2">
                 <div className="accordion-body">
-                  After the laborer's job is complete, you will receive a prompt to rate their performance and provide feedback. Your input is valuable in maintaining high standards and helps other shopkeepers make informed decisions. You can also leave feedback in the "My Orders" section of your account.
+                  After the laborer&apos;s job is complete, you will receive a prompt to rate their performance and provide feedback. Your input is valuable in maintaining high standards and helps other shopkeepers make informed decisions. You can also leave feedback in the &quot;My Orders&quot; section of your account.
                 </div>
               </div>
             </div>
@@ -92,7 +92,7 @@ export default function faq() {
               </h2>
               <div id="flush-collapseSeven" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample2">
                 <div className="accordion-body">
-                  If you encounter any issues with a laborer, please contact our support team immediately. We will address your concerns promptly and work to resolve any problems. You can reach support through the "Help" section of your account or by contacting us directly via phone or email.
+                  If you encounter any issues with a laborer, please contact our support team immediately. We will address your concerns promptly and work to resolve any problems. You can reach support through the &quot;Help&quot; section of your account or by contacting us directly via phone or email.
                 </div>
               </div>
             </div>
@@ -116,7 +116,7 @@ export default function faq() {
               </h2>
               <div id="flush-collapseNine" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample2">
                 <div className="accordion-body">
-                  You can update your account information by logging into your account and navigating to the "Profile" or "Account Settings" section. Here, you can edit your personal details, payment information, and shop preferences.
+                  You can update your account information by logging into your account and navigating to the &quot;Profile&quot; or &quot;Account Settings&quot; section. Here, you can edit your personal details, payment information, and shop preferences.
                 </div>
               </div>
             </div>
@@ -128,7 +128,7 @@ export default function faq() {
               </h2>
               <div id="flush-collapseTen" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample2">
                 <div className="accordion-body">
-                  If you forget your password, click on the "Forgot Password" link on the login page. Follow the instructions to reset your password via the email address associated with your account. If you encounter any issues, please contact our support team for assistance.
+                  If you forget your password, click on the &quot;Forgot Password&quot; link on the login page. Follow the instructions to reset your password via the email address associated with your account. If you encounter any issues, please contact our support team for assistance.
                 </div>
               </div>
             </div>

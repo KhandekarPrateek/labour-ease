@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./Navbar";
 import JobSlider from "./JobSlider";
+import Footer from "./Footer";
 import "./Home.css";
 
 export default function Home() {
@@ -168,6 +169,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

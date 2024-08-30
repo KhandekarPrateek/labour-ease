@@ -1,0 +1,60 @@
+footer.footer-dark {
+    background-color: #706f6f;
+    color: #fff;
+    padding: 20px;
+}
+
+footer .accordion-button {
+    background-color: #dad6d6;
+    border: 1px solid #555;
+    color: #414141;
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    padding: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer .accordion-button:hover,
+footer .accordion-button:focus {
+    background-color: #a0a0a0;
+    border-color: #666;
+    color: #f0f0f0;
+}
+
+footer .accordion-button:not(.collapsed) {
+    background-color: #555;
+    color: #f0f0f0;
+}
+
+footer .accordion-body {
+    background-color: #d3d0d0;
+    color: #474646;
+    padding: 15px;
+    border-top: 1px solid #444;
+}
+
+footer .container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer .container a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+footer .container a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    footer .accordion-button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    footer .accordion-body {
+        padding: 10px;
+    }
+}

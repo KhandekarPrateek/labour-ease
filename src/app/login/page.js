@@ -1,17 +1,17 @@
 "use client";
 import { useState } from "react";
 import "./page.css";
-import Image from 'next/image';
+import Image from "next/image";
 
 import toast from "react-hot-toast";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
 export default function Login() {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-  const router = useRouter()
+  const router = useRouter();
 
   const { email, password } = formData;
 
@@ -38,12 +38,11 @@ export default function Login() {
         const data = await response.json();
         toast.success(data.message);
         // Handle successful login (e.g., redirect to dashboard)
-        console.log(data.role)
-        if(data.role==='shopkeeper'){
-          router.push('/shopkeeper-dashboard');
-
-        }else{
-          router.push('/employee-dashboard')
+        console.log(data.role);
+        if (data.role === "shopkeeper") {
+          router.push("/shopkeeper-dashboard");
+        } else {
+          router.push("/employee-dashboard");
         }
       } else {
         const errorData = await response.json();
@@ -56,15 +55,9 @@ export default function Login() {
 
   return (
     <div className="login-container">
-    <div className="logo">
-  <Image
-    src="/images/Header.png"  
-    alt="Logo"
-    width={80}          
-    height={80}        
-
-  />
-</div>
+      <div className="logo">
+        <Image src="/images/profile.jpg" alt="Logo" width={80} height={80} />
+      </div>
 
       <h2 className="login-heading">Login</h2>
       <form onSubmit={handleOnSubmit}>

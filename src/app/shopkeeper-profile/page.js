@@ -1,20 +1,33 @@
 "use client";
 
-import React, { useState } from 'react';
-import './page.css'; 
-
+import React, { useState, useEffect } from 'react';
+import './page.css';
+import './spinner.css';  // Import the spinner CSS
 
 const ShopkeeperProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
+  const [profile, setProfile] = useState(null); // Initialize profile as null
+  const [loading, setLoading] = useState(true); // Initialize loading as true
 
-  const [profile, setProfile] = useState({
-    shopName: "John's Shop",
+  useEffect(() => {
+    const fetchShopkeeperData = async () => {
+      try {
+        const response = await fetch(`/api/updateShopkeeper?id=299`); // Adjusted for initial fetch
+        if (response.ok) {
+          const data = await response.json();
+          setProfile(data);
+        } else {
+          console.error('Failed to fetch shopkeeper data');
+        }
+      } catch (error) {
+        console.error('Error fetching shopkeeper data:', error);
+      } finally {
+        setLoading(false); // Set loading to false after the data is fetched
+      }
+    };
 
-    email: 'john.shop@example.com',
-    address: '123 Shop Street, Shop City',
-
-    bio: "A short bio about John's Shop.",
-  });
+    fetchShopkeeperData();
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -27,28 +40,35 @@ const ShopkeeperProfilePage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsEditing(false);
-    console.log("Profile updated:", profile);
 
-    // try {
-    //   const response = await fetch("/api/updateProfile", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(formData),
-    //   });
-
-    //   if (response.ok) {
-    //     const data = await response.json();
-    //     toast.success(data.message);
-    //   } else {
-    //     const errorData = await response.json();
-    //     toast.error(errorData.message);
-    //   }
-    // } catch (error) {
-    //   toast.error("Failed to login");
-    // }
+    try {
+      const response = await fetch("/api/updateShopkeeper", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(profile),
+      });
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.message);
+        setProfile(data.data);
+      } else {
+        const errorData = await response.json();
+        console.error(errorData.message);
+      }
+    } catch (error) {
+      console.error("Failed to update profile", error);
+    }
   };
+
+  if (loading) {
+    return (
+      <div className="spinner-container">
+        <div className="loader"></div>
+      </div>
+    ); // Display the spinner while loading
+  }
 
   return (
     <div className={`background-container ${isEditing ? 'blurred' : ''} d-flex align-items-center justify-content-center vh-100`}>
@@ -63,9 +83,9 @@ const ShopkeeperProfilePage = () => {
               <label className="form-label">Shop Name</label>
               <input
                 type="text"
-                name="shopName"
+                name="shop_name"
                 className="form-control"
-                value={profile.shopName}
+                value={profile.shop_name}
                 onChange={handleChange}
                 required
                 style={{ borderRadius: '10px' }}
@@ -73,41 +93,28 @@ const ShopkeeperProfilePage = () => {
             </div>
 
             <div className="mb-3">
-              <label className="form-label">Email</label>
-              <input
-                type="email"
-                name="email"
-                className="form-control"
-                value={profile.email}
-                onChange={handleChange}
-                required
-                style={{ borderRadius: '10px' }}
-              />
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Address</label>
-              <input
-                type="text"
-                name="address"
-                className="form-control"
-                value={profile.address}
-                onChange={handleChange}
-                required
-                style={{ borderRadius: '10px' }}
-              />
-            </div>
-
-            <div className="mb-3">
-              <label className="form-label">Bio</label>
+              <label className="form-label">Shop Address</label>
               <textarea
-                name="bio"
+                name="shop_address"
                 className="form-control"
-                value={profile.bio}
+                value={profile.shop_address}
                 onChange={handleChange}
                 required
                 style={{ borderRadius: '10px' }}
                 rows={3}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Shop Phone</label>
+              <input
+                type="tel"
+                name="shop_phone"
+                className="form-control"
+                value={profile.shop_phone}
+                onChange={handleChange}
+                required
+                style={{ borderRadius: '10px' }}
               />
             </div>
 
@@ -127,10 +134,11 @@ const ShopkeeperProfilePage = () => {
           </form>
         ) : (
           <>
-            <p className="text-muted"><strong>Shop Name:</strong> {profile.shopName}</p>
-            <p className="text-muted"><strong>Email:</strong> {profile.email}</p>
-            <p className="text-muted"><strong>Address:</strong> {profile.address}</p>
-            <p className="text-muted"><strong>Bio:</strong> {profile.bio}</p>
+            <p className="text-muted"><strong>Shop Name:</strong> {profile.shop_name}</p>
+            <p className="text-muted"><strong>Shop Address:</strong> {profile.shop_address}</p>
+            <p className="text-muted"><strong>Shop Phone:</strong> {profile.shop_phone}</p>
+            <p className="text-muted"><strong>Created At:</strong> {new Date(profile.created_at).toLocaleString()}</p>
+            <p className="text-muted"><strong>Last Updated:</strong> {new Date(profile.updated_at).toLocaleString()}</p>
 
             <div className="d-grid gap-2 mt-4">
               <button
@@ -144,7 +152,6 @@ const ShopkeeperProfilePage = () => {
           </>
         )}
       </div>
-
     </div>
   );
 };

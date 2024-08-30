@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 import toast from "react-hot-toast";
 import "./page.css";
@@ -12,6 +11,7 @@ export default function Register() {
     confirmPassword: "",
     role: "shopkeeper", // Default role
   });
+  const [isLoading, setIsLoading] = useState(false); // State to manage loading
 
   function changeHandler(event) {
     const { name, value } = event.target;
@@ -29,6 +29,9 @@ export default function Register() {
       return;
     }
 
+    setIsLoading(true); // Set loading to true before fetching
+    toast.loading("Loading...", { duration: 3000 }); // Show a toast message
+
     try {
       const response = await fetch("/api/register", {
         method: "POST",
@@ -43,14 +46,20 @@ export default function Register() {
         }),
       });
 
+      const data = await response.json();
+
       if (response.ok) {
         toast.success("You are registered successfully");
+        // You might want to redirect the user or clear the form here
+      } else if (response.status === 409) {
+        toast.error("User already registered");
       } else {
-        const errorData = await response.json();
-        toast.error(errorData.error);
+        toast.error(data.error || "Failed to register");
       }
     } catch (error) {
       toast.error("Failed to register");
+    } finally {
+      setIsLoading(false); // Set loading to false after fetching
     }
   }
 
@@ -141,8 +150,8 @@ export default function Register() {
               Labour
             </label>
           </div>
-          <button type="submit" className="register-button">
-            Submit
+          <button type="submit" className="register-button" disabled={isLoading}>
+            {isLoading ? "Loading..." : "Submit"}
           </button>
         </form>
         <div className="mt-4 text-center">

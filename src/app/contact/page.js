@@ -27,6 +27,16 @@ export default function Contact() {
   return (
     <div className="container contact-container">
       <div className="row h-100 align-items-center justify-content-center">
+      <div className="col-md-12 col-lg-6 d-none d-md-block">
+          <Image
+        src="/images/contact.avif" 
+        alt="Contact Us"
+        layout="responsive" 
+        width={700} 
+        height={475} 
+        className="img-fluid" 
+      />
+        </div>
         <div className="col-md-12 col-lg-6">
           <h1 className="display-4">Contact Us</h1>
           <form ref={form} onSubmit={sendEmail}>
@@ -74,16 +84,7 @@ export default function Contact() {
             </button>
           </form>
         </div>
-        <div className="col-md-12 col-lg-6 d-none d-md-block">
-          <Image
-        src="/images/contact.avif" 
-        alt="Contact Us"
-        layout="responsive" 
-        width={700} 
-        height={475} 
-        className="img-fluid" 
-      />
-        </div>
+        
       </div>
     </div>
   );

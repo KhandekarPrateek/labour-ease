@@ -31,7 +31,7 @@ export async function POST(req) {
       // Compare provided password with the plain text password in the database
       if (password === user.password) {
         return new Response(
-          JSON.stringify({ message: "Login successful", role: user.role }),
+          JSON.stringify({ message: "Login successful", role: user.role , userID:user.id }),
           { status: 200 }
         );
       } else {

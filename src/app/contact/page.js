@@ -1,14 +1,19 @@
 'use client'
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import Image from 'next/image';
+import toast, { Toaster } from 'react-hot-toast';
 import "./page.css"
 
 export default function Contact() {
   const form = useRef();
+  const [isSubmitting, setIsSubmitting] = useState(false); // State to prevent double submission
 
   const sendEmail = (e) => {
     e.preventDefault();
+
+    if (isSubmitting) return; // Prevent double submission
+    setIsSubmitting(true);
 
     emailjs
       .sendForm("service_ujhxo2s", "template_ssabsif", form.current, {
@@ -16,26 +21,30 @@ export default function Contact() {
       })
       .then(
         () => {
-          console.log("SUCCESS!");
+          toast.success("Message sent successfully!");
+          setIsSubmitting(false); // Reset submitting state
         },
         (error) => {
-          console.log("FAILED...", error.text);
+          toast.error("Failed to send message. Please try again.");
+          console.error("FAILED...", error.text);
+          setIsSubmitting(false); // Reset submitting state
         }
       );
   };
 
   return (
     <div className="container contact-container">
+      <Toaster  reverseOrder={false} /> {/* Only one Toaster component */}
       <div className="row h-100 align-items-center justify-content-center">
-      <div className="col-md-12 col-lg-6 d-none d-md-block">
+        <div className="col-md-12 col-lg-6 d-none d-md-block">
           <Image
-        src="/images/contact.avif" 
-        alt="Contact Us"
-        layout="responsive" 
-        width={700} 
-        height={475} 
-        className="img-fluid" 
-      />
+            src="/images/contact.avif" 
+            alt="Contact Us"
+            layout="responsive" 
+            width={700} 
+            height={475} 
+            className="img-fluid" 
+          />
         </div>
         <div className="col-md-12 col-lg-6">
           <h1 className="display-4">Contact Us</h1>
@@ -79,12 +88,11 @@ export default function Contact() {
                 required
               />
             </div>
-            <button type="submit" className="btn btn-primary">
-              Send
+            <button type="submit" className="btn btn-primary" disabled={isSubmitting}>
+              {isSubmitting ? "Sending..." : "Send"}
             </button>
           </form>
         </div>
-        
       </div>
     </div>
   );

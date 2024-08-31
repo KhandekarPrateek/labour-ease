@@ -2,7 +2,6 @@
 import { useState } from "react";
 import "./page.css";
 import Image from "next/image";
-
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
@@ -11,8 +10,8 @@ export default function Login() {
     email: "",
     password: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-
   const { email, password } = formData;
 
   const handleOnChange = (e) => {
@@ -24,6 +23,8 @@ export default function Login() {
 
   const handleOnSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
+    toast.loading("Loading...");
 
     try {
       const response = await fetch("/api/login", {
@@ -36,6 +37,7 @@ export default function Login() {
 
       if (response.ok) {
         const data = await response.json();
+        toast.dismiss();
         toast.success(data.message);
         // Handle successful login (e.g., redirect to dashboard)
         console.log(data.role);
@@ -46,10 +48,14 @@ export default function Login() {
         }
       } else {
         const errorData = await response.json();
+        toast.dismiss();
         toast.error(errorData.message);
       }
     } catch (error) {
+      toast.dismiss();
       toast.error("Failed to login");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -58,7 +64,6 @@ export default function Login() {
       <div className="logo">
         <Image src="/images/profile.jpg" alt="Logo" width={80} height={80} />
       </div>
-
       <h2 className="login-heading">Login</h2>
       <form onSubmit={handleOnSubmit}>
         <div className="login-box">
@@ -83,8 +88,8 @@ export default function Login() {
             placeholder="Enter your password"
           />
         </div>
-        <button type="submit" className="login-button">
-          Sign In
+        <button type="submit" className="login-button" disabled={isLoading}>
+          {isLoading ? "Signing In..." : "Sign In"}
         </button>
       </form>
       <div className="text-center">

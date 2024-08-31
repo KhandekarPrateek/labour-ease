@@ -25,8 +25,9 @@ export default async function Main() {
   // } catch (error) {
   //   console.error("Error inserting data:", error);
   // }
-  // const result = await sql`SELECT * FROM SHOPKEEPERS`;
+  // const result = await sql`SELECT * FROM users`;
   // console.log(result);
+
 
   return (
     <main>

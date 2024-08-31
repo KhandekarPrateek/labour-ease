@@ -1,4 +1,4 @@
-export default [
+const jobs= [
     {
       title: 'Job 1',
       image: '',
@@ -25,3 +25,5 @@ export default [
       description: 'Job 5 description',
     },
   ];
+
+  export default jobs

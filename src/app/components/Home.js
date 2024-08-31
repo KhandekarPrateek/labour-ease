@@ -1,7 +1,9 @@
 import React from "react";
 import Navbar from "./Navbar";
 import JobSlider from "./JobSlider";
+import Footer from "./Footer";
 import "./Home.css";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -20,7 +22,9 @@ export default function Home() {
             </p>
           </div>
           <div className="image-container">
-            <img
+            <Image
+            width={400}
+            height={400}
               src="/images/heroS.jpg"
               alt="hero"
               className="img-fluid"
@@ -168,6 +172,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

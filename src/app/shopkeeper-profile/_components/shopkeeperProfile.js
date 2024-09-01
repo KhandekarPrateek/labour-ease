@@ -1,8 +1,7 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
-
-import '../../shopkeeper-profile/page.css'
+import '../../shopkeeper-profile/page.css';
 import '../../shopkeeper-profile/spinner.css'; // Import the spinner CSS
 import { useSearchParams } from 'next/navigation';
 
@@ -78,8 +77,7 @@ const ShopkeeperProfilePage = () => {
 
   if (!profile) {
     return <div>No profile data available.</div>; // Fallback in case the profile is still null
-  }//only needed when loading true but still profile is null will have to test whther to remove or keep this 
-  //comment by prateek
+  }
 
   return (
     <div className={`background-container ${isEditing ? 'blurred' : ''} d-flex align-items-center justify-content-center vh-100`}>
@@ -96,9 +94,9 @@ const ShopkeeperProfilePage = () => {
                 type="text"
                 name="shop_name"
                 className="form-control"
-                value={profile.shop_name } 
+                value={profile.shop_name}
                 onChange={handleChange}
-                required
+                required={true} // Added required attribute
                 style={{ borderRadius: '10px' }}
               />
             </div>
@@ -108,9 +106,9 @@ const ShopkeeperProfilePage = () => {
               <textarea
                 name="shop_address"
                 className="form-control"
-                value={profile.shop_address} 
+                value={profile.shop_address}
                 onChange={handleChange}
-                required
+                required={true} // Added required attribute
                 style={{ borderRadius: '10px' }}
                 rows={3}
               />
@@ -122,10 +120,23 @@ const ShopkeeperProfilePage = () => {
                 type="tel"
                 name="shop_phone"
                 className="form-control"
-                value={profile.shop_phone } 
+                value={profile.shop_phone}
                 onChange={handleChange}
-                required
+                required={true} // Added required attribute
                 style={{ borderRadius: '10px' }}
+              />
+            </div>
+
+            <div className="mb-3">
+              <label className="form-label">Bio</label>
+              <textarea
+                name="bio"
+                className="form-control"
+                value={profile.bio}
+                onChange={handleChange}
+                required={true} // Added required attribute
+                style={{ borderRadius: '10px' }}
+                rows={3}
               />
             </div>
 
@@ -148,7 +159,8 @@ const ShopkeeperProfilePage = () => {
             <p className="text-muted"><strong>Shop Name:</strong> {profile.shop_name}</p>
             <p className="text-muted"><strong>Shop Address:</strong> {profile.shop_address}</p>
             <p className="text-muted"><strong>Shop Phone:</strong> {profile.shop_phone}</p>
-           
+            <p className="text-muted"><strong>Bio:</strong> {profile.bio}</p>
+
             <div className="d-grid gap-2 mt-4">
               <button
                 className="btn btn-primary"

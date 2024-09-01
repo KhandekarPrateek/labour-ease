@@ -25,7 +25,7 @@ export default function Login() {
     e.preventDefault();
     setIsLoading(true);
     toast.loading("Loading...");
-
+  
     try {
       const response = await fetch("/api/login", {
         method: "POST",
@@ -34,7 +34,7 @@ export default function Login() {
         },
         body: JSON.stringify(formData),
       });
-
+  
       if (response.ok) {
         const data = await response.json();
         toast.dismiss();
@@ -42,12 +42,15 @@ export default function Login() {
         // Handle successful login (e.g., redirect to dashboard)
         console.log(data.role);
         console.log(data.userID);
-        
+  
+        // Store the uniqueID in local storage
+        localStorage.setItem("uniqueId", data.uniqueID);
+  
         const dashboardUrl =
-        data.role === "shopkeeper"
-          ? `/shopkeeper-dashboard?userID=${data.userID}`
-          : `/employee-dashboard?userID=${data.userID}`;
-      router.push(dashboardUrl);
+          data.role === "shopkeeper"
+            ? `/shopkeeper-dashboard?userID=${data.userID}`
+            : `/employee-dashboard?userID=${data.userID}`;
+        router.push(dashboardUrl);
       } else {
         const errorData = await response.json();
         toast.dismiss();

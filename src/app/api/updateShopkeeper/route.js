@@ -24,7 +24,7 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-  const { id, shop_name, shop_address, shop_phone } = await request.json();
+  const { id, shop_name, shop_address, shop_phone,bio } = await request.json();
 
   try {
     const result = await sql`
@@ -33,7 +33,8 @@ export async function POST(request) {
         shop_name = ${shop_name},
         shop_address = ${shop_address},
         shop_phone = ${shop_phone},
-        updated_at = CURRENT_TIMESTAMP
+        updated_at = CURRENT_TIMESTAMP,
+        bio = ${bio}
       WHERE id = ${id}
       RETURNING *
     `;

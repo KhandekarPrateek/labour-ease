@@ -6,8 +6,10 @@ export default function faq() {
 
   return (
     <div className='flex flex-col mt-20'>
-        <div style={{ marginTop: 24 }} className="container text-center">
-      <h1 className="display-1">Frequently Asked Questions</h1>
+
+    <div style={{ marginTop: 24,maxWidth:800 }} className="container text-center">
+        <h1 style={{fontWeight: 'bold', marginTop: 100}} className="">We are here to Answer all you Questions</h1>
+        <h6 style={{marginTop:40,color:'grey'}} className="">This section would help you learn more about the platform</h6>
       <div className="row">
         <div className="col">
           <div className="accordion accordion-flush" id="accordionFlushExample">
@@ -73,74 +75,11 @@ export default function faq() {
             </div>
           </div>
         </div>
-        <div className="col">
-          <div className="accordion accordion-flush" id="accordionFlushExample2">
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
-                  How do I provide feedback on a laborer?
-                </button>
-              </h2>
-              <div id="flush-collapseSix" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample2">
-                <div className="accordion-body">
-                  After the laborer&apos;s job is complete, you will receive a prompt to rate their performance and provide feedback. Your input is valuable in maintaining high standards and helps other shopkeepers make informed decisions. You can also leave feedback in the &quot;My Orders&quot; section of your account.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
-                  What should I do if I encounter a problem with a laborer?
-                </button>
-              </h2>
-              <div id="flush-collapseSeven" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample2">
-                <div className="accordion-body">
-                  If you encounter any issues with a laborer, please contact our support team immediately. We will address your concerns promptly and work to resolve any problems. You can reach support through the &quot;Help&quot; section of your account or by contacting us directly via phone or email.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
-                  Are there any long-term contracts or commitments required?
-                </button>
-              </h2>
-              <div id="flush-collapseEight" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample2">
-                <div className="accordion-body">
-                  No, there are no long-term contracts or commitments required. You can request labor as needed for specific tasks or time periods. Our platform is designed to offer flexibility, so you can use our services on a short-term or as-needed basis.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
-                  How do I update my account information?
-                </button>
-              </h2>
-              <div id="flush-collapseNine" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample2">
-                <div className="accordion-body">
-                  You can update your account information by logging into your account and navigating to the &quot;Profile&quot; or &quot;Account Settings&quot; section. Here, you can edit your personal details, payment information, and shop preferences.
-                </div>
-              </div>
-            </div>
-            <div className="accordion-item">
-              <h2 className="accordion-header">
-                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
-                  What should I do if I forget my password?
-                </button>
-              </h2>
-              <div id="flush-collapseTen" className="accordion-collapse collapse" data-bs-parent="#accordionFlushExample2">
-                <div className="accordion-body">
-                  If you forget your password, click on the &quot;Forgot Password&quot; link on the login page. Follow the instructions to reset your password via the email address associated with your account. If you encounter any issues, please contact our support team for assistance.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
       <div className="got-questions">Got any more questions ?</div>
       <div>
-  <button type="button" className="btn btn-outline-info" style={{ color: 'white' }}><a href="/contact" style={{ color: 'white', textDecoration: 'none' }}>Get In Touch</a></button>
+  <button type="button" className="btn btn-outline-info" style={{  }}><a href="/contact" style={ {color:' #250729',textDecoration: 'none' }}>Get In Touch</a></button>
 </div>
     </div>
     </div>

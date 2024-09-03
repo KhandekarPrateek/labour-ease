@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import EmpDashboardPage from "./_components/EmployeeDashboard";
+import EmpDashboardPage from "./_components/employeeDashboard";
 
 const ShopkkeeperDashboardPage = () => {
   return (

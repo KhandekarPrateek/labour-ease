@@ -38,7 +38,12 @@ export async function POST(req) {
         VALUES (${userId}, 'Edit', 'Edit', 'Edit','Edit')
       `;
     }
-
+    if (role === 'labour') {
+      await sql`
+        INSERT INTO labours (id, name, phone, address, experience)
+        VALUES (${userId}, 'Edit', 'Edit', 'Edit','Edit')
+      `;
+    }
     return new Response(JSON.stringify({ message: "User registered successfully", userId }), {
       status: 200,
     });

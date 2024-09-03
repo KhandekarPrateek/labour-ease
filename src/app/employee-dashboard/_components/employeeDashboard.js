@@ -4,9 +4,10 @@ import { useSearchParams } from 'next/navigation'
 
 
 const EmpDashboardPage=()=>{
-    const searchParams = useSearchParams();
-    const userID = searchParams.get('userID');
-    console.log(userID);
+
+  const searchParams = useSearchParams();
+  const userID = searchParams.get('userID');
+  console.log(userID,"ppppp");
     return(
         <>
          <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,7 +22,7 @@ const EmpDashboardPage=()=>{
                 <a className="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/employee-profile"> Profile</a>
+              <a className="nav-link" href={`employee-profile?userID=${userID}`}> Profile</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Settings</a>

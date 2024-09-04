@@ -44,7 +44,7 @@ export default function Login() {
         console.log(data.userID);
   
         // Store the uniqueID in local storage
-        localStorage.setItem("uniqueId", data.uniqueID);
+        localStorage.setItem("uniqueId", data.userID);
   
         const dashboardUrl =
           data.role === "shopkeeper"

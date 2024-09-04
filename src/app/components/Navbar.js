@@ -24,11 +24,12 @@ const Navbar = () => {
             <li className="nav-item">
               <Link href="/events" className="nav-link">Events</Link>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link href={userRole === 'shopkeeper' ? '/shopkeeper-profile' : '/employee-profile'} className="nav-link">
                 {userRole === 'shopkeeper' ? 'Shopkeeper Profile' : 'Employee Profile'}
               </Link>
-            </li>
+            </li> */}
+           
           </ul>
         </div>
       </div>

@@ -4,15 +4,16 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <div>
+      <div className="highlight">
+          FAQ
+        </div>
       <footer
-        className="footer  footer-light"
-        style={{
-          backgroundColor: "#edecec" /* light grey background */,
-          color: "#333" /* dark grey text color */,
-          padding: "20px" /* add some padding to the footer */,
-        }}
+        className="footer  footer-dark"
+        style={{padding:50}}
       >
+       
         <div>
+        
           <div className="accordion" id="accordionExample">
             <div className="accordion-item">
               <h2 className="accordion-header">
@@ -91,7 +92,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="container">
-          <p>&copy; 2024 LabourEase</p>
+          <p style={{color: 'black'}}>&copy; 2024 LabourEase</p>
         </div>
         
       </footer>

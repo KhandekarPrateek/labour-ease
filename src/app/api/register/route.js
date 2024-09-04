@@ -18,7 +18,7 @@ export async function POST(req) {
   try {
     // Check if the user already exists
     const existingUser = await sql`
-      SELECT id FROM users WHERE username = ${username} OR email = ${email}
+      SELECT id FROM users WHERE email = ${email}
     `;
 
     if (existingUser.rowCount > 0) {
@@ -32,7 +32,18 @@ export async function POST(req) {
       INSERT INTO users (id, username, password, email, role)
       VALUES (${userId}, ${username}, ${password}, ${email}, ${role})
     `;
-
+    if (role === 'shopkeeper') {
+      await sql`
+        INSERT INTO shopkeepers (id, shop_name, shop_address, shop_phone, bio)
+        VALUES (${userId}, 'Edit', 'Edit', 'Edit','Edit')
+      `;
+    }
+    if (role === 'labour') {
+      await sql`
+        INSERT INTO labours (id, name, phone, address, experience)
+        VALUES (${userId}, 'Edit', 'Edit', 'Edit','Edit')
+      `;
+    }
     return new Response(JSON.stringify({ message: "User registered successfully", userId }), {
       status: 200,
     });

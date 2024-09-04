@@ -1,13 +1,12 @@
-"use client"
-import React, { useState } from 'react';
+import { Suspense } from "react";
+import ShopkeeperDashboard from "./_components/shopkeeperDashboard";
 
+const ShopkkeeperDashboardPage = () => {
+  return (
+    <Suspense>
+    <ShopkeeperDashboard />
+    </Suspense>
+   );
+};
 
-const ShopkkeeperDashboardPage=()=>{
-    return(
-        <h1>
-            hiii welcome to Shopkkeeper dahsborad
-        </h1>
-    )
-}
-
-export default ShopkkeeperDashboardPage
+export default ShopkkeeperDashboardPage;

@@ -1,11 +1,11 @@
 footer.footer-dark {
-    background-color: #ede6e6;
+    background-color: #ffffff;
     color: #fff;
     padding: 20px;
 }
 
 footer .accordion-button {
-    background-color: #edecec;
+    background-color: #f7f6f6;
     border: 1px solid #555;
     color: #414141;
     font-size: 1.125rem;
@@ -23,12 +23,12 @@ footer .accordion-button:focus {
 }
 
 footer .accordion-button:not(.collapsed) {
-    background-color: #555;
-    color: #f0f0f0;
+    background-color: #efeded;
+    color: #333131;
 }
 
 footer .accordion-body {
-    background-color: #dedcdc;
+    background-color: #efeded;
     color: #474646;
     padding: 15px;
     border-top: 1px solid #444;
@@ -58,3 +58,15 @@ footer .container a:hover {
         padding: 10px;
     }
 }
+.highlight {
+     margin: 0 50px;
+    padding: 50px;
+    font-weight: bold;
+    font-size: 34px;
+    color: #333;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    background-color: #eaebeb; /* highlight color */
+    padding: 5px;
+    border-radius: 5px;
+    
+  }

@@ -44,15 +44,17 @@ section {
   
   .accordion {
     margin-top: 30px;
+    
   }
   
   .accordion-item {
     margin-bottom: 20px;
+    background-color: white;
   }
   
   .accordion-header {
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #6c6c6c;
     cursor: pointer;
   }
   
@@ -71,13 +73,15 @@ section {
   
   .accordion-collapse {
     padding: 10px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #777676;
+    
   }
   
   .accordion-body {
     padding: 10px;
     font-size: 16px;
     line-height: 24px;
+    
     color: #666;
   }
   
@@ -91,15 +95,15 @@ section {
   button.btn-outline-info {
     margin-top: 20px;
     padding: 10px 20px;
-    border: none;
+    border: 2px solid rgb(22, 20, 24);
     border-radius: 5px;
-    background-color: #337ab7;
-    color: #fff;
+    background-color: blue;
+    color: #250729;
     cursor: pointer;
   }
   
   button.btn-outline-info:hover {
-    background-color: #23527c;
+    background-color: rgb(116, 116, 195);
   }
   
   /* ====== FAQ Section End ====== */

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import "./employeeDashboard.css"; // Import the CSS file for styling
+import "./employeeDashboard.css"; 
 
 const EmpDashboardPage = () => {
   const searchParams = useSearchParams();
@@ -9,7 +9,7 @@ const EmpDashboardPage = () => {
   const userID = searchParams.get('userID');
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [isEditing, setIsEditing] = useState(false); // Manage edit mode
+  const [isEditing, setIsEditing] = useState(false); 
 
   useEffect(() => {
     const fetchEmployeeData = async () => {
@@ -47,35 +47,6 @@ const EmpDashboardPage = () => {
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setProfile({ ...profile, [name]: value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsEditing(false);
-
-    try {
-      const response = await fetch("/api/updateLabour", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(profile),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setProfile(data.data);
-      } else {
-        const errorData = await response.json();
-        console.error(errorData.message);
-      }
-    } catch (error) {
-      console.error("Failed to update profile", error);
-    }
-  };
-
 
   if (loading) {
     return (
@@ -107,6 +78,9 @@ const EmpDashboardPage = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Settings</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href={`/employee-apply?userID=${userID}`}>Apply for Jobs</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>

@@ -1,35 +1,53 @@
-// JobData.js
-import React from 'react';
-import Card from './Card'; // Adjust the import path as needed
+'use client'; // Correct directive for client-side components
 
-const cardData = [
-  { title: 'Card title 1', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 2', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 3', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 4', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 5', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 6', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 7', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 8', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 9', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 10', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-];
+import React, { useEffect, useState } from 'react';
+import Card from './Card';
+import toast from 'react-hot-toast';
 
-export default function JobData() {
+const JobData = () => {
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('/api/getJobPostings');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setJobs(data.jobs);
+      } catch (error) {
+        toast.error('Failed to fetch job postings');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  if (loading) {
+    return <p>Loading job postings...</p>;
+  }
+
   return (
-    <div className="container text-center">
+    <div className="container mt-5">
+      <h2>Available Job Postings</h2>
       <div className="row">
-        {cardData.map((card, index) => (
-          <div className="col" key={index}>
-            <Card 
-              title={card.title} 
-              text={card.text} 
-              imgSrc={card.imgSrc} 
-              link={card.link} 
-            />
-          </div>
-        ))}
+        {jobs.length > 0 ? (
+          jobs.map((job) => (
+            <div key={job.id} className="col-md-4">
+              <Card job={job} />
+            </div>
+          ))
+        ) : (
+          <p>No job postings available</p>
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default JobData;

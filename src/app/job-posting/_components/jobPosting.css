@@ -1,0 +1,140 @@
+/* Basic reset and container styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Navbar styling */
+  .navbar {
+    background-color: #0056b3;
+    padding: 15px 30px;
+    border-radius: 8px;
+  }
+  
+  .navbar-brand, .navbar-nav .nav-link {
+    color: #0a0a0a !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .navbar-brand:hover, .navbar-nav .nav-link:hover {
+    color: #f0a500 !important;
+  }
+  
+  .navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Form styling */
+  h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    color: #0056b3;
+    text-align: center;
+    position: relative;
+  }
+  
+  h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #f0a500;
+    margin: 10px auto 0;
+    border-radius: 2px;
+  }
+  
+  .form-control {
+    padding: 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .form-control:focus {
+    border-color: #0056b3;
+    outline: none;
+  }
+  
+  textarea.form-control {
+    resize: none;
+    height: 150px;
+  }
+  
+  button[type="submit"] {
+    background-color: #0056b3;
+    border-color: #0056b3;
+    color: #fff;
+    font-size: 18px;
+    padding: 12px 25px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease-in-out;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #f0a500;
+    border-color: #f0a500;
+  }
+  
+  /* Dropdown styling */
+  .skills-dropdown {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .skills-dropdown .form-check {
+    margin-bottom: 12px;
+  }
+  
+  .skills-dropdown p {
+    color: #6c757d;
+    font-size: 14px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .container {
+      padding: 15px;
+    }
+  
+    h2 {
+      font-size: 26px;
+    }
+  
+    .form-control {
+      font-size: 15px;
+    }
+  
+    button[type="submit"] {
+      font-size: 16px;
+      padding: 10px 20px;
+    }
+  }
+  

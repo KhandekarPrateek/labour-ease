@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState } from "react";
 import { skillsData } from "@/app/skillsDatabase";
-import toast from "react-hot-toast";  // Import react-hot-toast
+import toast from "react-hot-toast";
+import './jobPosting.css';
 
 const JobPosting = () => {
   const [userID, setUserID] = useState(null);
@@ -10,7 +11,8 @@ const JobPosting = () => {
   const [description, setDescription] = useState('');
   const [skills, setSkills] = useState([]);
   const [search, setSearch] = useState('');
-  const [loading, setLoading] = useState(false);  // Loading state
+  const [dropdownVisible, setDropdownVisible] = useState(false); // For dropdown visibility
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const storedData = localStorage.getItem('uniqueId');
@@ -32,8 +34,8 @@ const JobPosting = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);  // Set loading to true when submit is clicked
-    toast.loading("Loading...");  // Show loading toast
+    setLoading(true);
+    toast.loading("Loading...");
 
     const jobPost = { title, description, skills, userID };
     try {
@@ -46,23 +48,18 @@ const JobPosting = () => {
       });
       const data = await response.json();
 
-      toast.dismiss();  // Dismiss the loading toast
+      toast.dismiss();
       if (response.ok) {
         toast.success('Job posting created successfully!');
         console.log('Job posting created:', data);
-        // Handle successful creation (e.g., show a success message, redirect)
       } else {
         toast.error(data.message || 'Error creating job posting');
-        console.error('Error creating job posting:', data.message);
-        // Handle error (e.g., show error message to user)
       }
     } catch (error) {
-      toast.dismiss();  // Dismiss the loading toast
+      toast.dismiss();
       toast.error('Failed to create job posting');
-      console.error('Error:', error);
-      // Handle network errors
     } finally {
-      setLoading(false);  // Set loading to false after response is received
+      setLoading(false);
     }
   };
 
@@ -71,19 +68,19 @@ const JobPosting = () => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid">
           <a className="navbar-brand" href={`shopkeeper-dashboard?userID=${userID}`}>Dashboard</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <a className="nav-link active" href="#">Home</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href={`shopkeeper-profile?userID=${userID}`}>Profile</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="job-posting">Add Jobs Posting</a>
+                <a className="nav-link" href="job-posting">Add Job Posting</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="#">Logout</a>
@@ -124,31 +121,35 @@ const JobPosting = () => {
               className="form-control mb-2"
               placeholder="Search for skills..."
               value={search}
-              onChange={(e) => setSearch(e.target.value)}
+              onChange={(e) => {
+                setSearch(e.target.value);
+                setDropdownVisible(true);
+              }}
+              onClick={() => setDropdownVisible(true)}
             />
-            <div
-              style={{ maxHeight: '200px', overflowY: 'scroll', border: '1px solid #ced4da', padding: '10px' }}
-            >
-              {filteredSkills.length > 0 ? (
-                filteredSkills.map(skill => (
-                  <div className="form-check" key={skill.id}>
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value={skill.id}
-                      id={`skill-${skill.id}`}
-                      onChange={handleCheckboxChange}
-                      checked={skills.includes(skill.id)}
-                    />
-                    <label className="form-check-label" htmlFor={`skill-${skill.id}`}>
-                      {skill.name}
-                    </label>
-                  </div>
-                ))
-              ) : (
-                <p>No skills found</p>
-              )}
-            </div>
+            {dropdownVisible && (
+              <div className="skills-dropdown">
+                {filteredSkills.length > 0 ? (
+                  filteredSkills.map(skill => (
+                    <div className="form-check" key={skill.id}>
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value={skill.id}
+                        id={`skill-${skill.id}`}
+                        onChange={handleCheckboxChange}
+                        checked={skills.includes(skill.id)}
+                      />
+                      <label className="form-check-label" htmlFor={`skill-${skill.id}`}>
+                        {skill.name}
+                      </label>
+                    </div>
+                  ))
+                ) : (
+                  <p>No skills found</p>
+                )}
+              </div>
+            )}
           </div>
           <button type="submit" className="btn btn-primary" disabled={loading}>
             {loading ? 'Submitting...' : 'Submit'}

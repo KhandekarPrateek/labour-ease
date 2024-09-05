@@ -1,5 +1,3 @@
-/* EmployeeProfile.css */
-
 * {
     margin: 0;
     padding: 0;
@@ -7,8 +5,8 @@
 }
 
 body {
-    background-color: #f8f9fa; /* Light background color for the page */
-    color: #333; /* Default text color */
+    background-color: #f8f9fa;
+    color: #333;
     font-family: Arial, sans-serif;
 }
 
@@ -17,27 +15,28 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    padding: 20px;
 }
 
 .card {
-    width: 350px;
-    background-color: #ffffff; /* White background for the card */
-    border: 1px solid #ddd; /* Light border for the card */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 3D effect with shadow */
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-10px); /* Lift effect on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .card-img-top {
-    background-color: #2596be; /* Primary color for the profile initials background */
-    color: #ffffff; /* Text color for initials */
-    width: 100px;
-    height: 100px;
+    background-color: #2596be;
+    color: #ffffff;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -48,22 +47,22 @@ body {
 }
 
 .card-body {
-    padding: 20px;
+    padding: 25px;
 }
 
 .card-title {
     font-size: 24px;
     font-weight: bold;
-    color: #007f6d; /* Accent color for title */
+    color: #007f6d;
 }
 
 .card-text {
     font-size: 16px;
-    color: #666; /* Text color */
+    color: #666;
 }
 
 .btn-primary {
-    background-color: #00977c; /* Primary button color */
+    background-color: #00977c;
     border: none;
     color: #fff;
     font-size: 16px;
@@ -73,11 +72,11 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #007f6d; /* Darker shade on hover */
+    background-color: #007f6d;
 }
 
 .btn-secondary {
-    background-color: #f1f1f1; /* Secondary button background */
+    background-color: #f1f1f1;
     border: none;
     color: #333;
     font-size: 16px;
@@ -87,17 +86,91 @@ body {
 }
 
 .btn-secondary:hover {
-    background-color: #ddd; /* Darker shade on hover */
+    background-color: #ddd;
 }
 
 .form-control {
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
+    padding: 20px;
     font-size: 16px;
     margin-bottom: 10px;
 }
 
+.card-details {
+    margin-top: 10px;
+}
+
+.card-details .card-text {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.card-details .card-text strong {
+    color: #007f6d;
+    font-weight: bold;
+}
+
+.card-details .card-text span {
+    color: #333;
+}
+
+.card-details .card-text:before {
+    color: #2596be;
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .d-grid {
     margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 50px;
+    }
+
+    .card {
+        width: 500px;
+    }
+
+    .card-title {
+        font-size: 28px;
+    }
+
+    .card-text {
+        font-size: 18px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+}
+
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.loader {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #2596be;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }

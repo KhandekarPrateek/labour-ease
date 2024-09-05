@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import "./EmployeeProfile.css";
+import Link from 'next/link';
 
 const EmployeeProfile = () => {
   const searchParams = useSearchParams();
@@ -58,7 +59,6 @@ const EmployeeProfile = () => {
                 const updatedData = await updatedResponse.json();
                 setProfile(updatedData);
 
-                // Redirect to the dashboard
                 router.push('/dashboard');
             } else {
                 console.error('Failed to fetch updated profile data');
@@ -161,15 +161,30 @@ const EmployeeProfile = () => {
                 ) : (
                   <>
                     <h5 className="card-title">{profile.name}</h5>
-                    <p className="card-text">{profile.phone}</p>
-                    <p className="card-text">{profile.address}</p>
-                    <p className="card-text">{profile.experience}</p>
+<div className="card-details">
+  <p className="card-text">
+    <strong>📞 Phone Number:</strong> <span>{profile.phone}</span>
+  </p>
+  <p className="card-text">
+    <strong>🏠 Address:</strong> <span>{profile.address}</span>
+  </p>
+  <p className="card-text">
+    <strong>💼 Experience:</strong> <span>{profile.experience}</span>
+  </p>
+</div>
+
                     <button
                       className="btn btn-primary"
                       onClick={() => setIsEditing(true)}
                     >
                       Edit Profile
                     </button>
+                    
+                    <Link href={`/employee-dashboard?userID=${userID}`}>
+                    <p className="btn btn-secondary mt-3">Go to Dashboard</p>
+</Link>
+
+
                   </>
                 )}
               </div>

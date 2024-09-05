@@ -1,0 +1,93 @@
+/* General styling for the container */
+.background-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .blurred {
+    backdrop-filter: blur(8px);
+  }
+  
+  .card {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 20px;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    color: #007bff;
+  }
+  
+  .form-control {
+    border-radius: 15px;
+    border-color: #007bff;
+  }
+  
+  .btn-primary {
+    border-radius: 15px;
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-secondary {
+    border-radius: 15px;
+    background-color: #6c757d;
+    border-color: #6c757d;
+  }
+  
+  .text-muted {
+    font-size: 18px;
+  }
+  
+  .spinner-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  
+  .loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #007bff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+  }
+  .profile-initials {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #007bff;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  
+.card-img-top {
+    background-color: #2596be; /* Primary color for the profile initials background */
+    color: #ffffff; /* Text color for initials */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    font-size: 40px;
+    font-weight: bold;
+}
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  

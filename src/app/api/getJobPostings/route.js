@@ -2,21 +2,7 @@ import { sql } from "@vercel/postgres";
 export const fetchCache = "force-no-store"
 
 export async function GET() {
-  const allJobsResult = await sql`
-  SELECT * FROM job_postings;
-`;
-
-const skillsResult = await sql`
-  SELECT * FROM skills;
-`;
-
-const postingNeedsSkillsResult = await sql`
-  SELECT * FROM posting_needs_skills;
-`;
-
-console.log("All Job Postings:", allJobsResult.rows);
-console.log("Skills:", skillsResult.rows);
-console.log("Posting Needs Skills:", postingNeedsSkillsResult.rows);
+ 
   try {
     const result = await sql`
       SELECT 

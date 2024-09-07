@@ -1,7 +1,8 @@
-'use client'; // Correct directive for client-side components
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import Card from './Card';
+import "./JobData.css"
 import toast from 'react-hot-toast';
 
 const JobData = () => {
@@ -29,21 +30,28 @@ const JobData = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading job postings...</p>;
+    return (
+      <div className="spinner-container">
+        <div className="spinner-border" role="status">
+          <span className="sr-only"></span>
+        </div>
+        <p>Loading job postings...</p>
+      </div>
+    );
   }
 
   return (
-    <div className="container mt-5">
-      <h2>Available Job Postings</h2>
+    <div className="container mt-5 job-data-container">
+      <h2 className="text-center">Available Job Postings</h2>
       <div className="row">
         {jobs.length > 0 ? (
           jobs.map((job) => (
-            <div key={job.id} className="col-md-4">
+            <div key={job.id} className="col-md-4 mb-4">
               <Card job={job} />
             </div>
           ))
         ) : (
-          <p>No job postings available</p>
+          <p className="no-jobs text-center">No job postings available</p>
         )}
       </div>
     </div>

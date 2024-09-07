@@ -1,7 +1,22 @@
-// app/api/getJobs/route.js
 import { sql } from "@vercel/postgres";
+export const fetchCache = "force-no-store"
 
 export async function GET() {
+  const allJobsResult = await sql`
+  SELECT * FROM job_postings;
+`;
+
+const skillsResult = await sql`
+  SELECT * FROM skills;
+`;
+
+const postingNeedsSkillsResult = await sql`
+  SELECT * FROM posting_needs_skills;
+`;
+
+console.log("All Job Postings:", allJobsResult.rows);
+console.log("Skills:", skillsResult.rows);
+console.log("Posting Needs Skills:", postingNeedsSkillsResult.rows);
   try {
     const result = await sql`
       SELECT 
@@ -14,7 +29,9 @@ LEFT JOIN posting_needs_skills pns ON jp.id = pns.job_posting_id
 LEFT JOIN skills s ON pns.skill_id = s.id
 GROUP BY jp.id, jp.title, jp.description;
     `;
+    console.log("Query result:", result.rows);
 
+    
     return new Response(
       JSON.stringify({ jobs: result.rows }),
       { status: 200 }

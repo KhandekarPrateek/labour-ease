@@ -1,0 +1,39 @@
+.job-data-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .job-data-container h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    margin-bottom: 30px;
+  }
+  
+  .no-jobs {
+    font-size: 1.2rem;
+    color: #999;
+    margin-top: 20px;
+  }
+  
+  .spinner-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+    color: #2596be;
+  }
+  
+  .spinner-container p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #555;
+  }
+  

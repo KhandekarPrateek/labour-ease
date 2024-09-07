@@ -1,4 +1,3 @@
-'use-cient'
 import { Suspense } from "react";
 import JobData from "./_components/JobData";
 

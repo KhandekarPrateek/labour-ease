@@ -13,7 +13,11 @@ shopkeeper_id,
 title,
 description
 from job_postings  WHERE shopkeeper_id = ${shopkeeperId}   `;
-    console.log("Query result:", result.rows);
+    //console.log("Query result:", result.rows);
+    const res = await sql`
+      Select  *
+from job_postings  WHERE shopkeeper_id = ${shopkeeperId}   `;
+    console.log("Query result:", res.rows);
 
     
     return new Response(

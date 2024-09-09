@@ -1,45 +1,135 @@
-/* Card.css */
+.job-card {
+  margin-bottom: 20px;
+}
 
 .card {
-    width: 28rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.2s;
-  }
-  
-  .card:hover {
-    transform: scale(1.05);
-  }
-  
-  .card-body {
-    padding: 1rem;
-  }
-  
-  .card-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-  
-  .card-text {
-    font-size: 1rem;
-    color: #555;
-  }
-  
-  .btn-primary {
-    background-color: #007bff;
-    border: none;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.2s;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-  }
-  
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+  color: #007f6d;
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.btn-primary {
+  background-color: #2596be;
+  border-color: #2596be;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #007f6d;
+  border-color: #007f6d;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.modal-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  transform: translateZ(10px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  overflow: hidden;
+}
+
+.modal-header {
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.modal-title {
+  color: #007f6d;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.close {
+  font-size: 1.5rem;
+  color: #575656;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #2596be;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.modal-body p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #666;
+}
+
+.modal-footer {
+  padding: 16px;
+  border-top: 1px solid #ddd;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-secondary {
+  background-color: #dddddd;
+  border-color: #dddddd15;
+}
+
+.btn-secondary:hover {
+  background-color: #bbb;
+}
+
+.modal-footer .btn-primary {
+  background-color: #2596be;
+  border-color: #2596be;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #007f6d;
+  border-color: #007f6d;
+}
+
+.modal-footer .btn {
+  padding: 10px 20px;
+}

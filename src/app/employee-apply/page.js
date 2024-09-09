@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import AllJobs from "./_components/AllJobs"
+import JobData from "./_components/JobData";
 
 const AllJobsPage = () => {
   return (
     <Suspense>
-    <AllJobs />
+    <JobData />
     </Suspense>
    );
 };

@@ -1,35 +1,93 @@
-// JobData.js
-import React from 'react';
-import Card from './Card'; // Adjust the import path as needed
+'use client';
 
-const cardData = [
-  { title: 'Card title 1', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 2', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 3', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 4', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 5', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 6', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 7', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 8', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 9', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-  { title: 'Card title 10', text: 'Some quick example text to build on the card title and make up the bulk of the card\'s content.', imgSrc: '...', link: '#' },
-];
+import React, { useEffect, useState } from 'react';
+import Card from './Card';
+import './JobData.css';
+import toast from 'react-hot-toast';
 
-export default function JobData() {
+const JobData = () => {
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');  // State for search input
+  const [filteredJobs, setFilteredJobs] = useState([]);  // State for filtered jobs
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch('/api/getJobPostings');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setJobs(data.jobs);
+        setFilteredJobs(data.jobs);  // Initialize filtered jobs
+      } catch (error) {
+        toast.error('Failed to fetch job postings');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
+  // Filter jobs based on the search term
+  useEffect(() => {
+    const results = jobs.filter((job) => {
+      const titleMatch = job.title.toLowerCase().includes(searchTerm.toLowerCase());
+
+      // Convert skills to a string and check if any skills match the search term
+      const skillsMatch = Array.isArray(job.skills)
+        ? job.skills.join(', ').toLowerCase().includes(searchTerm.toLowerCase())
+        : job.skills?.toLowerCase().includes(searchTerm.toLowerCase());
+
+      return titleMatch || skillsMatch;
+    });
+
+    setFilteredJobs(results);
+  }, [searchTerm, jobs]);
+
+  if (loading) {
+    return (
+      <div className="spinner-container">
+        <div className="spinner-border" role="status">
+          <span className="sr-only"></span>
+        </div>
+        <p>Loading job postings...</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="container text-center">
+    <div className="container mt-5 job-data-container">
+      <h2 className="text-center">Available Job Postings</h2>
+
+      {/* Search Bar */}
+      <div className="search-bar mb-4 text-center">
+        <input
+          type="text"
+          placeholder="Search by job title or skills..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="form-control"
+          style={{ maxWidth: '400px', margin: '0 auto' }}
+        />
+      </div>
+
       <div className="row">
-        {cardData.map((card, index) => (
-          <div className="col" key={index}>
-            <Card 
-              title={card.title} 
-              text={card.text} 
-              imgSrc={card.imgSrc} 
-              link={card.link} 
-            />
-          </div>
-        ))}
+        {filteredJobs.length > 0 ? (
+          filteredJobs.map((job) => (
+            <div key={job.id} className="col-md-4 mb-4">
+              <Card job={job} />
+            </div>
+          ))
+        ) : (
+          <p className="no-jobs text-center">No job postings available</p>
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default JobData;

@@ -59,7 +59,7 @@ const EmployeeProfile = () => {
                 const updatedData = await updatedResponse.json();
                 setProfile(updatedData);
 
-                router.push('/dashboard');
+                // router.push('/dashboard');
             } else {
                 console.error('Failed to fetch updated profile data');
             }

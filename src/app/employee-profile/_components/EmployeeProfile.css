@@ -174,3 +174,23 @@ body {
         transform: rotate(360deg);
     }
 }
+ /* Dropdown styling */
+ .skills-dropdown {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    background-color: white;
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .skills-dropdown .form-check {
+    margin-bottom: 12px;
+  }
+  
+  .skills-dropdown p {
+    color: #6c757d;
+    font-size: 14px;
+  }

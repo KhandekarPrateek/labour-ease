@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import "./EmployeeProfile.css";
 import Link from 'next/link';
+import { skillsData } from '@/app/skillsDatabase'; // Assuming skillsData is available
 
 const EmployeeProfile = () => {
   const searchParams = useSearchParams();
@@ -11,6 +12,9 @@ const EmployeeProfile = () => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false); // Manage edit mode
+  const [skills, setSkills] = useState([]); // For selected skills
+  const [search, setSearch] = useState(''); // For skill search
+  const [dropdownVisible, setDropdownVisible] = useState(false); // For dropdown visibility
 
   useEffect(() => {
     const fetchEmployeeData = async () => {
@@ -19,6 +23,7 @@ const EmployeeProfile = () => {
         if (response.ok) {
           const data = await response.json();
           setProfile(data);
+          setSkills(data.skills || []); // Assuming skills are part of profile
         } else {
           console.error('Failed to fetch employee data');
         }
@@ -37,47 +42,115 @@ const EmployeeProfile = () => {
     setProfile({ ...profile, [name]: value });
   };
 
+  const handleCheckboxChange = (e) => {
+    const value = parseInt(e.target.value);
+    setSkills(prevSkills =>
+      prevSkills.includes(value)
+        ? prevSkills.filter(skillId => skillId !== value)
+        : [...prevSkills, value]
+    );
+  };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setIsEditing(false);
+
+  //   const updatedProfile = { ...profile, skills };
+
+  //   try {
+  //     const response = await fetch("/api/updateLabour", {
+  //       method: "POST",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //       },
+  //       body: JSON.stringify(updatedProfile),
+  //     });
+
+  //     if (response.ok) {
+  //       const data = await response.json();
+  //       console.log(data.message);
+
+  //       const updatedResponse = await fetch(`/api/updateLabour?id=${userID}`);
+  //       if (updatedResponse.ok) {
+  //         const updatedData = await updatedResponse.json();
+  //         setProfile(updatedData);
+  //       } else {
+  //         console.error('Failed to fetch updated profile data');
+  //       }
+  //     } else {
+  //       const errorData = await response.json();
+  //       console.error(errorData.message);
+  //     }
+  //   } catch (error) {
+  //     console.error("Failed to update profile", error);
+  //   }
+  // };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsEditing(false);
-
+  
+    const updatedProfile = { ...profile, skills };
+  
     try {
-        const response = await fetch("/api/updateLabour", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(profile),
+      // First, update the labour profile details if needed
+      const response = await fetch("/api/updateLabour", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(updatedProfile),
+      });
+  
+      if (response.ok) {
+        const data = await response.json();
+        console.log(data.message);
+  
+        // After updating the profile, update the skills
+        const skillsResponse = await fetch("/api/updateSkills", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            labour_id: userID,
+            skills, // Array of skill IDs
+          }),
         });
-
-        if (response.ok) {
-            const data = await response.json();
-            console.log(data.message);
-
-            const updatedResponse = await fetch(`/api/updateLabour?id=${userID}`);
-            if (updatedResponse.ok) {
-                const updatedData = await updatedResponse.json();
-                setProfile(updatedData);
-
-                // router.push('/dashboard');
-            } else {
-                console.error('Failed to fetch updated profile data');
-            }
+        console.log({ labour_id: userID, skills });
+        if (skillsResponse.ok) {
+          const skillsData = await skillsResponse.json();
+          console.log(skillsData.message);
+  
+          const updatedResponse = await fetch(`/api/updateLabour?id=${userID}`);
+          if (updatedResponse.ok) {
+            const updatedData = await updatedResponse.json();
+            setProfile(updatedData);
+          } else {
+            console.error('Failed to fetch updated profile data');
+          }
         } else {
-            const errorData = await response.json();
-            console.error(errorData.message);
+          const skillsErrorData = await skillsResponse.json();
+          console.error(skillsErrorData.message);
         }
+      } else {
+        const errorData = await response.json();
+        console.error(errorData.message);
+      }
     } catch (error) {
-        console.error("Failed to update profile", error);
+      console.error("Failed to update profile", error);
     }
-};
-
-
+  };
+  
   const getInitials = (name) => {
     if (!name) return 'N/A';
     const firstInitial = name.charAt(0).toUpperCase();
     return firstInitial;
   };
+
+  const filteredSkills = skillsData.filter(skill =>
+    skill.name.toLowerCase().includes(search.toLowerCase())
+  );
 
   if (loading) {
     return (
@@ -147,6 +220,42 @@ const EmployeeProfile = () => {
                         rows={3}
                       />
                     </div>
+                    <div className="mb-3">
+                      <label className="form-label">Search and Add Skills:</label>
+                      <input
+                        type="text"
+                        className="form-control mb-2"
+                        placeholder="Search for skills..."
+                        value={search}
+                        onChange={(e) => {
+                          setSearch(e.target.value);
+                          setDropdownVisible(true);
+                        }}
+                        onClick={() => setDropdownVisible(true)}
+                      />
+                      {dropdownVisible && (
+                        <div className="skills-dropdown">
+                          {filteredSkills.length > 0 ? (
+                            filteredSkills.map(skill => (
+                              <div className="form-check" key={skill.id}>
+                                <input
+                                  className="form-check-input"
+                                  type="checkbox"
+                                  value={skill.id}
+                                  onChange={handleCheckboxChange}
+                                  checked={skills.includes(skill.id)}
+                                />
+                                <label className="form-check-label">
+                                  {skill.name}
+                                </label>
+                              </div>
+                            ))
+                          ) : (
+                            <p>No skills found</p>
+                          )}
+                        </div>
+                      )}
+                    </div>
                     <div className="d-grid gap-2">
                       <button type="submit" className="btn btn-primary">Save Changes</button>
                       <button
@@ -161,30 +270,21 @@ const EmployeeProfile = () => {
                 ) : (
                   <>
                     <h5 className="card-title">{profile.name}</h5>
-<div className="card-details">
-  <p className="card-text">
-    <strong>📞 Phone Number:</strong> <span>{profile.phone}</span>
-  </p>
-  <p className="card-text">
-    <strong>🏠 Address:</strong> <span>{profile.address}</span>
-  </p>
-  <p className="card-text">
-    <strong>💼 Experience:</strong> <span>{profile.experience}</span>
-  </p>
-</div>
-
+                    <div className="card-details">
+                      <p className="card-text"><strong>📞 Phone:</strong> {profile.phone}</p>
+                      <p className="card-text"><strong>🏠 Address:</strong> {profile.address}</p>
+                      <p className="card-text"><strong>💼 Experience:</strong> {profile.experience}</p>
+                      <p className="card-text"><strong>🛠 Skills:</strong> {profile.skills?.map(skillId => skillsData.find(skill => skill.id === skillId)?.name).join(', ') || 'None'}</p>
+                    </div>
                     <button
                       className="btn btn-primary"
                       onClick={() => setIsEditing(true)}
                     >
                       Edit Profile
                     </button>
-                    
                     <Link href={`/employee-dashboard?userID=${userID}`}>
-                    <p className="btn btn-secondary mt-3">Go to Dashboard</p>
-</Link>
-
-
+                      <p className="btn btn-secondary mt-3">Go to Dashboard</p>
+                    </Link>
                   </>
                 )}
               </div>

@@ -48,6 +48,9 @@ const ShopkeeperDashboard = () => {
                                 <a className="nav-link" href="/job-openings">See current opening</a>
                             </li>
                             <li className="nav-item">
+                                <a className="nav-link active" aria-current="page" href="/test">test</a>
+                            </li>                            
+                            <li className="nav-item">
                                 <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>
                             </li>
                         </ul>

@@ -15,7 +15,7 @@ LEFT JOIN posting_needs_skills pns ON jp.id = pns.job_posting_id
 LEFT JOIN skills s ON pns.skill_id = s.id
 GROUP BY jp.id, jp.title, jp.description;
     `;
-    console.log("Query result:", result.rows);
+    // console.log("Query result:", result.rows);
 
     
     return new Response(

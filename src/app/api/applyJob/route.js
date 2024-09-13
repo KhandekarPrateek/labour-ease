@@ -30,8 +30,7 @@ export async function POST(req) {
     `;
 
     // Fetching the result for confirmation or logging (optional)
-    const result = await sql`SELECT * FROM labour_has_applied`;
-    console.log(result);
+    
 
     return new Response(JSON.stringify({ message: 'Application submitted successfully' }), { status: 200 });
 

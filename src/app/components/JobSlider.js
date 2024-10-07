@@ -1,8 +1,24 @@
-import React from 'react';
+'use client'
+import React, { useState, useEffect } from 'react';
 import Jobs from './Jobs';
-import jobsData from './jobsData';
 
 export default function JobSlider() {
+  const [jobsData, setJobsData] = useState([]);
+
+  useEffect(() => {
+    const fetchJobs = async () => {
+      try {
+        const response = await fetch('/api/getJobPostings'); // Ensure this is the correct path to your API
+        const data = await response.json();
+        setJobsData(data.jobs);
+      } catch (error) {
+        console.error('Error fetching job postings:', error);
+      }
+    };
+
+    fetchJobs();
+  }, []);
+
   return (
     <div className="job-slider">
       <div className="container">
@@ -11,8 +27,8 @@ export default function JobSlider() {
             <div id="jobCarousel" className="carousel slide" data-bs-ride="carousel">
               <div className="carousel-inner">
                 {jobsData.map((job, index) => (
-                  <div key={index} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
-                    <Jobs {...job} /> 
+                  <div key={job.job_id} className={`carousel-item ${index === 0 ? 'active' : ''}`}>
+                    <Jobs {...job} />
                   </div>
                 ))}
               </div>
@@ -30,7 +46,7 @@ export default function JobSlider() {
                   padding: '10px',
                   fontSize: '12px',
                   cursor: 'pointer',
-                  zIndex: 1
+                  zIndex: 1,
                 }}
                 type="button"
                 data-bs-target="#jobCarousel"
@@ -53,7 +69,7 @@ export default function JobSlider() {
                   padding: '10px',
                   fontSize: '12px',
                   cursor: 'pointer',
-                  zIndex: 1
+                  zIndex: 1,
                 }}
                 type="button"
                 data-bs-target="#jobCarousel"

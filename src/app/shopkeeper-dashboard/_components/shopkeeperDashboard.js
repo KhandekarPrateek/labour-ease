@@ -11,6 +11,7 @@ const ShopkeeperDashboard = () => {
     const router = useRouter();
 
     const [jobPostings, setJobPostings] = useState([]);
+    const [reviews, setReviews] = useState([]); // State for shopkeeper reviews
     const [loading, setLoading] = useState(false);
     const [shopkeeperId, setShopkeeperId] = useState('');
     const [filter, setFilter] = useState("all");
@@ -21,6 +22,7 @@ const ShopkeeperDashboard = () => {
         if (storedShopkeeperId && storedShopkeeperId !== shopkeeperId) {
             setShopkeeperId(storedShopkeeperId);
             fetchJobPostingsAndApplicants(storedShopkeeperId);
+            fetchShopkeeperReviews(storedShopkeeperId); // Fetch reviews
         }
     }, [searchParams, shopkeeperId]);
 
@@ -54,6 +56,33 @@ const ShopkeeperDashboard = () => {
             toast.dismiss(toastId);
         }
     };
+
+    // New function to fetch reviews for the shopkeeper
+    const fetchShopkeeperReviews = async (shopkeeperId) => {
+        try {
+            const response = await fetch('/api/shopkeeper-reviews', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ shopkeeper_id: shopkeeperId }),
+            });
+    
+            const data = await response.json();
+    
+            if (response.ok) {
+                console.log('Reviews:', data.reviews);
+                setReviews(data.reviews); // Update the reviews state here
+            } else {
+                console.error(data.message);
+            }
+        } catch (error) {
+            console.error("Error fetching reviews:", error);
+        }
+    };
+    
+    
+    
 
     // Handle viewing applicants for a job posting
     const handleViewApplicants = (job) => {
@@ -124,8 +153,9 @@ const ShopkeeperDashboard = () => {
                                     <li className="nav-item"><a className="nav-link active" href="#">Home</a></li>
                                     <li className="nav-item"><a className="nav-link" href={`/shopkeeper-profile?userID=${userID}`}>Profile</a></li>
                                     <li className="nav-item"><a className="nav-link" href="/job-posting">Add Job Posting</a></li>
-                                    <li className="nav-item"><a className="nav-link" href="/job-openings">See current opening</a></li>
+                                    <li className="nav-item"><a className="nav-link" href="/job-openings">See current openings</a></li>
                                     <li className="nav-item"><a className="nav-link" href="#" onClick={handleLogout}>Logout</a></li>
+                                    <li className="nav-item"><a className="nav-link" href={`/rate-labours?userID=${userID}`}>rate-labour</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -169,6 +199,24 @@ const ShopkeeperDashboard = () => {
                             ) : (
                                 <p>No job postings found.</p>
                             )}
+                        </div>
+
+                        {/* Section to display reviews */}
+                        <div className="reviews-section mt-4">
+                            <h3>Reviews from Labours</h3>
+                            {reviews.length > 0 ? (
+    <ul className="list-group">
+        {reviews.map((review) => (
+            <li key={review.id} className="list-group-item">
+                <strong>Rating: {review.rating}</strong>
+                <p>{review.review}</p>
+            </li>
+        ))}
+    </ul>
+) : (
+    <p>No reviews available.</p>
+)}
+
                         </div>
                     </div>
                 </>

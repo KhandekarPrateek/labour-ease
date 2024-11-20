@@ -5,9 +5,9 @@ export async function POST(req) {
     try {
         const { shopkeeper_id } = await req.json();
 
-        // Query to fetch laborers working for the shopkeeper from works_for table
+        // Query to fetch unique laborers working for the shopkeeper from works_for table
         const result = await sql`
-            SELECT l.id AS labour_id, l.name, l.phone
+            SELECT DISTINCT l.id AS labour_id, l.name, l.phone
             FROM works_for w
             JOIN labours l ON l.id = w.labour_id
             WHERE w.shopkeeper_id = ${shopkeeper_id}

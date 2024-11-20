@@ -140,6 +140,9 @@ const EmpDashboardPage = () => {
                 <a className="nav-link" href={`/employee-apply?userID=${userID}`}>Apply for Jobs</a>
               </li>
               <li className="nav-item">
+                <a className="nav-link" href={`/view-rate?userID=${userID}`}>Your Ratings</a>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>
               </li>
             </ul>

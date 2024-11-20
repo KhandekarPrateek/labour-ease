@@ -36,7 +36,7 @@ const JobPosting = () => {
     e.preventDefault();
     setLoading(true);
     toast.loading("Loading...");
-
+  
     const jobPost = { title, description, skills, userID };
     try {
       const response = await fetch('/api/job_posting', {
@@ -47,11 +47,18 @@ const JobPosting = () => {
         body: JSON.stringify(jobPost),
       });
       const data = await response.json();
-
+  
       toast.dismiss();
       if (response.ok) {
         toast.success('Job posting created successfully!');
         console.log('Job posting created:', data);
+        
+        // Clear the form fields
+        setTitle('');
+        setDescription('');
+        setSkills([]);
+        setSearch('');
+        setDropdownVisible(false); // Optionally hide the dropdown
       } else {
         toast.error(data.message || 'Error creating job posting');
       }
@@ -62,6 +69,7 @@ const JobPosting = () => {
       setLoading(false);
     }
   };
+  
 
   return (
     <>

@@ -1,77 +1,14 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
-import { toast } from "react-hot-toast";
-import "./viewRatings.css"; // Add your custom styles here
 
-const ViewRatings = () => {
-  const searchParams = useSearchParams();
-  const userID = searchParams.get("userID"); // This is the labourer ID
+import React, { Suspense } from "react";
+import ViewRatings from "./_components/ViewRatings";
 
-  const [ratings, setRatings] = useState([]); // State to hold ratings list
-  const [loading, setLoading] = useState(false); // Loading state
-
-  // Fetch ratings for the labourer
-  useEffect(() => {
-    if (userID) {
-      fetchRatingsForLabour(userID);
-    }
-  }, [userID]);
-
-  const fetchRatingsForLabour = async (labourId) => {
-    setLoading(true);
-    const toastId = toast.loading("Fetching your ratings...");
-
-    try {
-      const response = await fetch("/api/getRatingsForLabour", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          labour_id: labourId,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setRatings(data.ratings);
-        toast.success("Ratings fetched successfully!");
-      } else {
-        toast.error(`Failed to fetch ratings: ${data.message}`);
-      }
-    } catch (error) {
-      toast.error("An error occurred while fetching ratings.");
-    } finally {
-      setLoading(false);
-      toast.dismiss(toastId);
-    }
-  };
-
+const ViewRatePage = () => {
   return (
-    <div className="container mt-4">
-      <h2>Your Ratings and Reviews</h2>
-
-      {loading ? (
-        <p>Loading your ratings...</p>
-      ) : ratings.length > 0 ? (
-        <ul className="list-group">
-          {ratings.map((rating, index) => (
-            <li key={index} className="list-group-item">
-              <div className="rating-info">
-                <h5>Shopkeeper: {rating.shopkeeper_name}</h5>
-                <p>Rating: {rating.rating}/5</p>
-                <p>Review: {rating.review}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No ratings found.</p>
-      )}
-    </div>
+    <Suspense fallback={<p>Loading...</p>}>
+      <ViewRatings />
+    </Suspense>
   );
 };
 
-export default ViewRatings;
+export default ViewRatePage;

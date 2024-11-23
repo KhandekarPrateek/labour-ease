@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
-import "./employeeDashboard.css"; 
+import "./employeeDashboard.css";
 
 const EmpDashboardPage = () => {
   const searchParams = useSearchParams();
@@ -9,9 +9,9 @@ const EmpDashboardPage = () => {
   const userID = searchParams.get('userID');
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [shopkeepers, setShopkeepers] = useState([]); // State for shopkeepers
-  const [reviews, setReviews] = useState([]); // State for shopkeeper reviews
-  const [isEditing, setIsEditing] = useState(false); 
+  const [shopkeepers, setShopkeepers] = useState([]);
+  const [reviews, setReviews] = useState([]);
+  const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
     const fetchEmployeeData = async () => {
@@ -32,11 +32,10 @@ const EmpDashboardPage = () => {
 
     const fetchShopkeepers = async () => {
       try {
-        const response = await fetch('/api/shopkeepers'); // Fetch shopkeepers data from your API
+        const response = await fetch('/api/shopkeepers');
         if (response.ok) {
           const data = await response.json();
           setShopkeepers(data);
-          // Initialize reviews state for each shopkeeper
           setReviews(data.map(shopkeeper => ({ id: shopkeeper.id, rating: 0, review: '' })));
         } else {
           console.error('Failed to fetch shopkeepers');
@@ -47,15 +46,13 @@ const EmpDashboardPage = () => {
     };
 
     fetchEmployeeData();
-    fetchShopkeepers(); // Fetch shopkeepers when the component mounts
+    fetchShopkeepers();
   }, [userID]);
 
   const handleLogout = async () => {
     localStorage.clear();
     try {
-      const response = await fetch('/api/logoutLabour', {
-        method: 'POST',
-      });
+      const response = await fetch('/api/logoutLabour', { method: 'POST' });
       if (response.ok) {
         router.push('/login');
       } else {
@@ -76,14 +73,12 @@ const EmpDashboardPage = () => {
 
   const handleReviewSubmit = async (shopkeeperId) => {
     const currentReview = reviews.find(review => review.id === shopkeeperId);
-    if (!currentReview) return; // Handle if review not found
+    if (!currentReview) return;
 
     try {
-      const response = await fetch('/api/submitReview', { // Adjust this endpoint as necessary
+      const response = await fetch('/api/submitReview', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           shopkeeperId,
           labourId: userID,
@@ -94,9 +89,8 @@ const EmpDashboardPage = () => {
 
       if (response.ok) {
         alert('Review submitted successfully!');
-        // Reset the specific shopkeeper's review state after submission
         handleReviewChange(shopkeeperId, 'rating', 0);
-        handleReviewChange(shopkeeperId, 'review', ''); 
+        handleReviewChange(shopkeeperId, 'review', '');
       } else {
         console.error('Failed to submit review');
       }
@@ -107,7 +101,7 @@ const EmpDashboardPage = () => {
 
   if (loading) {
     return (
-      <div className="spinner-container">
+      <div className="dashboard-spinner-container">
         <div className="loader"></div>
       </div>
     );
@@ -119,7 +113,7 @@ const EmpDashboardPage = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="dashboard-navbar navbar navbar-expand-lg">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">Dashboard</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -150,40 +144,47 @@ const EmpDashboardPage = () => {
         </div>
       </nav>
 
-      <div className="col-md-8">
-        <h1>Welcome {profile.name}</h1>
-
-        {/* Section to list shopkeepers and submit ratings/reviews */}
-        <h2>Rate and Review Shopkeepers</h2>
-        {shopkeepers.length === 0 ? (
-          <p>No shopkeepers available.</p>
-        ) : (
-          <ul>
-            {shopkeepers.map(shopkeeper => (
-              <li key={shopkeeper.id}>
-                <h3>{shopkeeper.shop_name}</h3>
-                <div>
-                  <label>Rating (1-5): </label>
-                  <input
-                    type="number"
-                    value={reviews.find(review => review.id === shopkeeper.id)?.rating || 0} // Get specific shopkeeper rating
-                    onChange={(e) => handleReviewChange(shopkeeper.id, 'rating', Number(e.target.value))}
-                    min="1"
-                    max="5"
-                  />
-                </div>
-                <div>
-                  <label>Review: </label>
-                  <textarea
-                    value={reviews.find(review => review.id === shopkeeper.id)?.review || ''} // Get specific shopkeeper review
-                    onChange={(e) => handleReviewChange(shopkeeper.id, 'review', e.target.value)}
-                  />
-                </div>
-                <button onClick={() => handleReviewSubmit(shopkeeper.id)}>Submit Review</button>
-              </li>
-            ))}
-          </ul>
-        )}
+      <div className="dashboard-container">
+        <h1 className="dashboard-welcome">Welcome {profile.name}</h1>
+        <div className="dashboard-shopkeepers">
+          <h2>Rate and Review Shopkeepers</h2>
+          {shopkeepers.length === 0 ? (
+            <p>No shopkeepers available.</p>
+          ) : (
+            <ul>
+              {shopkeepers.map(shopkeeper => (
+                <li key={shopkeeper.id}>
+                  <h3>{shopkeeper.shop_name}</h3>
+                  <div>
+                    <label className="dashboard-form-label">Rating (1-5):</label>
+                    <input
+                      className="dashboard-form-input"
+                      type="number"
+                      value={reviews.find(review => review.id === shopkeeper.id)?.rating || 0}
+                      onChange={(e) => handleReviewChange(shopkeeper.id, 'rating', Number(e.target.value))}
+                      min="1"
+                      max="5"
+                    />
+                  </div>
+                  <div>
+                    <label className="dashboard-form-label">Review:</label>
+                    <textarea
+                      className="dashboard-form-textarea"
+                      value={reviews.find(review => review.id === shopkeeper.id)?.review || ''}
+                      onChange={(e) => handleReviewChange(shopkeeper.id, 'review', e.target.value)}
+                    />
+                  </div>
+                  <button
+                    className="dashboard-btn"
+                    onClick={() => handleReviewSubmit(shopkeeper.id)}
+                  >
+                    Submit Review
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </>
   );

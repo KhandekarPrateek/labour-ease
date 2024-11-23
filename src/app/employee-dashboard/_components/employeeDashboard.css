@@ -1,87 +1,141 @@
-/* styles.css */
 
-/* Navbar styles */
-.navbar {
-    border-bottom: 1px solid #ddd;
+.dashboard-body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+  color: #444;
+}
+
+.dashboard-navbar {
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.dashboard-navbar .navbar-brand,
+.dashboard-navbar .nav-link {
+  color: white !important;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.dashboard-navbar .nav-link:hover {
+  text-decoration: underline;
+}
+
+
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-welcome {
+  color: #333;
+  font-size: 2.2rem;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dashboard-shopkeepers {
+  margin-top: 2rem;
+}
+.dashboard-shopkeepers h2 {
+  color: #555;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.dashboard-shopkeepers ul {
+  list-style-type: none;
+  padding: 0;
+}
+.dashboard-shopkeepers li {
+  background: #ffffff;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dashboard-shopkeepers li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+.dashboard-shopkeepers li h3 {
+  margin: 0;
+  color: #007bff;
+  font-size: 1.5rem;
+}
+
+.dashboard-form-label {
+  display: block;
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+.dashboard-form-input,
+.dashboard-form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+.dashboard-form-input:focus,
+.dashboard-form-textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  transition: all 0.2s ease-in-out;
+}
+.dashboard-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+
+.dashboard-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+.dashboard-btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+}
+.dashboard-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
   }
-  
-  .navbar-brand {
-    font-weight: bold;
+  100% {
+    transform: rotate(360deg);
   }
-  
-  .nav-link {
-    color: #007bff !important;
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
   }
-  
-  .nav-link.active {
-    font-weight: bold;
+  .dashboard-shopkeepers li {
+    padding: 1rem;
   }
-  
-  /* Container and Card Styles */
-  .container {
-    margin-top: 2rem;
-  }
-  
-  .card {
-    border: 1px solid #ddd;
-    border-radius: 0.5rem;
-  }
-  
-  .card-img-top {
-    background-color: #007bff; /* Primary color for the background */
-    color: #fff; /* White text color */
-    font-size: 3rem;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .card-body {
-    padding: 1.5rem;
-  }
-  
-  .card-title {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .card-text {
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Button Styles */
-  .btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
-  .btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #004085;
-  }
-  
-  .btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62;
-  }
-  
-  /* General Styles */
-  h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .text-center {
-    text-align: center;
-  }
-  
+}

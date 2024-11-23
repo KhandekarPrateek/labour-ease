@@ -1,11 +1,55 @@
 "use client";
+import React, { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
+import { toast } from "react-hot-toast";
+import "./viewRatings.css"; // Add your custom styles here
 
-import React, { Suspense } from "react";
-import ViewRatings from "./_components/ViewRatings";
+const ViewRatings = () => {
+  const searchParams = useSearchParams();
+  const userID = searchParams.get("userID"); // This is the labourer ID
 
-const ViewRatePage = () => {
+  const [ratings, setRatings] = useState([]); // State to hold ratings list
+  const [loading, setLoading] = useState(false); // Loading state
+
+  // Fetch ratings for the labourer
+  useEffect(() => {
+    if (userID) {
+      fetchRatingsForLabour(userID);
+    }
+  }, [userID]);
+
+  const fetchRatingsForLabour = async (labourId) => {
+    setLoading(true);
+    const toastId = toast.loading("Fetching your ratings...");
+
+    try {
+      const response = await fetch("/api/getRatingsForLabour", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          labour_id: labourId,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setRatings(data.ratings);
+        toast.success("Ratings fetched successfully!");
+      } else {
+        toast.error(`Failed to fetch ratings: ${data.message}`);
+      }
+    } catch (error) {
+      toast.error("An error occurred while fetching ratings.");
+    } finally {
+      setLoading(false);
+      toast.dismiss(toastId);
+    }
+  };
+
   return (
-<<<<<<< HEAD
     <div className="ratings-container">
       <div className="ratings-inner-container">
         <h2>Your Ratings and Reviews</h2>
@@ -29,12 +73,7 @@ const ViewRatePage = () => {
         )}
       </div>
     </div>
-=======
-    <Suspense fallback={<p>Loading...</p>}>
-      <ViewRatings />
-    </Suspense>
->>>>>>> 6cf7629e40069c28da96dd6473a0705232e00d80
   );
 };
 
-export default ViewRatePage;
+export default ViewRatings;

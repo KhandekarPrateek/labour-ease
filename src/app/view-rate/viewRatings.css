@@ -1,26 +1,96 @@
-.container {
-    max-width: 600px;
-    margin: 0 auto;
+/* Center the outer container on the page */
+.ratings-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Container that holds content inside and provides padding */
+.ratings-inner-container {
+  width: 100%;
+  max-width: 800px; /* Limit the maximum width */
+  padding: 20px;
+  background-color: #ffffff; /* White background for inner content */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centers the content inside */
+}
+
+/* Title styling */
+h2 {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 1.8rem;
+}
+
+/* Styling for the list of ratings */
+.ratings-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Rating card styling */
+.rating-card {
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(to bottom right, #e6f7ff, #ffffff); /* Light blue gradient background */
+  color: #333;
+}
+
+/* Hover effect for rating cards */
+.rating-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Inner content inside each card */
+.rating-info h5 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #007bff; /* Blue color for shopkeeper name */
+}
+
+.rating-info p {
+  margin: 5px 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+/* Add colors for the ratings */
+.rating-info p:first-of-type {
+  font-weight: bold;
+  color: #28a745; /* Green color for ratings */
+}
+
+/* Styling for the 'No ratings found' message */
+p.no-ratings {
+  font-size: 1.1rem;
+  color: #999;
+  font-style: italic;
+  text-align: center;
+}
+
+/* Make the list responsive on smaller screens */
+@media (max-width: 768px) {
+  .ratings-list {
+    grid-template-columns: 1fr 1fr;
   }
-  
-  h2 {
-    text-align: center;
-    margin-bottom: 20px;
+}
+
+@media (max-width: 480px) {
+  .ratings-list {
+    grid-template-columns: 1fr;
   }
-  
-  .list-group-item {
-    margin-bottom: 10px;
-    padding: 15px;
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-  }
-  
-  .rating-info h5 {
-    margin-bottom: 5px;
-  }
-  
-  .rating-info p {
-    margin: 0;
-  }
-  
+}

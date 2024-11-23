@@ -50,26 +50,28 @@ const ViewRatings = () => {
   };
 
   return (
-    <div className="container mt-4">
-      <h2>Your Ratings and Reviews</h2>
+    <div className="ratings-container">
+      <div className="ratings-inner-container">
+        <h2>Your Ratings and Reviews</h2>
 
-      {loading ? (
-        <p>Loading your ratings...</p>
-      ) : ratings.length > 0 ? (
-        <ul className="list-group">
-          {ratings.map((rating, index) => (
-            <li key={index} className="list-group-item">
-              <div className="rating-info">
-                <h5>Shopkeeper: {rating.shopkeeper_name}</h5>
-                <p>Rating: {rating.rating}/5</p>
-                <p>Review: {rating.review}</p>
-              </div>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>No ratings found.</p>
-      )}
+        {loading ? (
+          <p>Loading your ratings...</p>
+        ) : ratings.length > 0 ? (
+          <ul className="ratings-list">
+            {ratings.map((rating, index) => (
+              <li key={index} className="rating-card">
+                <div className="rating-info">
+                  <h5>Shopkeeper: {rating.shopkeeper_name}</h5>
+                  <p>Rating: {rating.rating}/5</p>
+                  <p>Review: {rating.review}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="no-ratings">No ratings found.</p>
+        )}
+      </div>
     </div>
   );
 };

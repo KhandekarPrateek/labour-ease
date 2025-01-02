@@ -1,4 +1,6 @@
 import React from 'react';
+import Link from 'next/link';
+
 
 export default function Jobs({ title, image, description }) {
   return (
@@ -6,9 +8,9 @@ export default function Jobs({ title, image, description }) {
       <div className="card-body">
         <h5 className="card-title">{title}</h5>
         <p className="card-text">{description}</p>
-        <a href="#" className="btn btn-primary">
+        <Link href="/login" className="btn btn-primary">
           Apply Now
-        </a>
+        </Link>
       </div>
     </div>
   );

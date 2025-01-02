@@ -151,7 +151,7 @@ export default function Home() {
           <div className="col">
             <nav
               id="navbar-example2"
-              className="navbar bg-light px-3 mb-3 shadow-sm rounded"
+              className="navbar px-3 mb-3 shadow-sm rounded"
             >
               <a className="navbar-brand" href="#">
                 Reviews
@@ -197,7 +197,7 @@ export default function Home() {
               data-bs-spy="scroll"
               data-bs-target="#navbar-example2"
               data-bs-smooth-scroll="true"
-              className="scrollspy-example bg-light p-3 rounded shadow-sm"
+              className="scrollspy-example p-3 rounded shadow-sm"
               tabIndex="0"
               style={{
                 height: 300,

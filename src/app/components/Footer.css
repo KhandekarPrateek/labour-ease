@@ -1,13 +1,13 @@
 footer.footer-dark {
-    background-color: #ffffff;
-    color: #fff;
+    background-color: #232606; /* Updated primary dark background */
+    color: #F2E8DC; /* Updated light text color for contrast */
     padding: 20px;
 }
 
 footer .accordion-button {
-    background-color: #f7f6f6;
-    border: 1px solid #555;
-    color: #414141;
+    background-color: #D9C5AD; /* Updated background color */
+    border: 1px solid #F2E8DC; /* Updated border matching light color */
+    color: #232606; /* Updated text color matching dark theme */
     font-size: 1.125rem;
     font-weight: 600;
     border-radius: 0.25rem;
@@ -17,21 +17,21 @@ footer .accordion-button {
 
 footer .accordion-button:hover,
 footer .accordion-button:focus {
-    background-color: #e3dfdf;
-    border-color: #666;
-    color: #6f6c6c;
+    background-color: #F2E8DC; /* Lighter color for hover */
+    border-color: #232606; /* Darker border for focus */
+    color: #232606; /* Text color for hover */
 }
 
 footer .accordion-button:not(.collapsed) {
-    background-color: #efeded;
-    color: #333131;
+    background-color: #F2E8DC; /* Updated background when not collapsed */
+    color: #232606; /* Updated darker text when not collapsed */
 }
 
 footer .accordion-body {
-    background-color: #efeded;
-    color: #474646;
+    background-color: #F2E8DC; /* Updated light background */
+    color: #232606; /* Updated text color matching dark theme */
     padding: 15px;
-    border-top: 1px solid #444;
+    border-top: 1px solid #D9C5AD; /* Updated border matching theme */
 }
 
 footer .container {
@@ -40,12 +40,13 @@ footer .container {
 }
 
 footer .container a {
-    color: #1e90ff;
+    color: #D9C5AD; /* Updated accent color for links */
     text-decoration: none;
 }
 
 footer .container a:hover {
     text-decoration: underline;
+    color: #232606; /* Updated hover color to match theme */
 }
 
 @media (max-width: 768px) {
@@ -58,15 +59,37 @@ footer .container a:hover {
         padding: 10px;
     }
 }
+
 .highlight {
-     margin: 0 50px;
-    padding: 50px;
+    text-align: center;
     font-weight: bold;
     font-size: 34px;
-    color: #333;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    background-color: #eaebeb; /* highlight color */
+    color: #232606; /* Updated dark text from theme */
+    background-color: #D9C5AD; /* Updated accent background color */
     padding: 5px;
-    border-radius: 5px;
-    
-  }
+}
+
+.footer-link-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    color: #F2E8DC; /* Updated light color for footer links */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #8C7569; /* Updated hover color */
+}
+
+.footer-copyright {
+    text-align: center;
+    color: #F2E8DC; /* Updated light text color */
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 20px;
+}

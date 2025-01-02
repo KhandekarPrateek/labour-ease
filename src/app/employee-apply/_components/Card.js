@@ -61,18 +61,28 @@ export default function Card({ job }) {
       toast.dismiss(toastId); // Dismiss loading toast
     }
   };
-
+  const truncateText = (text, wordLimit) => {
+    const words = text.split(' ');
+    if (words.length > wordLimit) {
+      return words.slice(0, wordLimit).join(' ') + '...';
+    }
+    return text;
+  };
   return (
-    <div className="job-card">
-      <div className="card">
-        <div className="card-body">
-          <h5 className="card-title">{job.title}</h5>
-          <p className="card-text">{job.description}</p>
-          <button className="btn btn-primary" onClick={() => setShowModal(true)}>
+    <div className=" d-flex align-items-stretch">
+    <div className="card h-100 shadow-sm">
+      <div className="card-body d-flex flex-column">
+        <h5 className="card-title">{job.title}</h5>
+        <p className="card-text text-truncate overflow-hidden" style={{ maxHeight: '4.5em' }}>
+          {truncateText(job.description, 100)}
+        </p>
+        <div className="mt-auto">
+          <button className="btn btn-primary w-100" onClick={() => setShowModal(true)}>
             View Details
           </button>
         </div>
       </div>
+    </div>
 
       {showModal && (
         <div className="modal-overlay" role="dialog">

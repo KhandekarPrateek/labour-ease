@@ -1,14 +1,14 @@
-
+/* Updated Theme Dashboard Styles */
 .dashboard-body {
   font-family: 'Arial', sans-serif;
-  background-color: #f4f6f9;
+  background-color: #F2E8DC;  /* Beige Background */
   margin: 0;
   padding: 0;
-  color: #444;
+  color: #232606;  /* Deep Green for text */
 }
 
 .dashboard-navbar {
-  background-color: #007bff;
+  background-color: #232606;  /* Deep Green */
   color: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -20,20 +20,20 @@
 }
 .dashboard-navbar .nav-link:hover {
   text-decoration: underline;
+  color: #D9C5AD; /* Warm Tan Accent on hover */
 }
-
 
 .dashboard-container {
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #ffffff;
+  background-color: #FFFFFF; /* White background for container */
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard-welcome {
-  color: #333;
+  color: #232606; /* Deep Green for text */
   font-size: 2.2rem;
   margin-top: 1.5rem;
   font-weight: bold;
@@ -44,7 +44,7 @@
   margin-top: 2rem;
 }
 .dashboard-shopkeepers h2 {
-  color: #555;
+  color: #232606; /* Deep Green for headings */
   font-size: 1.8rem;
   margin-bottom: 1rem;
   text-align: center;
@@ -54,10 +54,10 @@
   padding: 0;
 }
 .dashboard-shopkeepers li {
-  background: #ffffff;
+  background: #FFFFFF;  /* White background for list items */
   margin-bottom: 1rem;
   padding: 1.5rem;
-  border: 1px solid #ddd;
+  border: 1px solid #D9C5AD; /* Warm Tan Accent border */
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -68,7 +68,7 @@
 }
 .dashboard-shopkeepers li h3 {
   margin: 0;
-  color: #007bff;
+  color: #232606; /* Deep Green for subheadings */
   font-size: 1.5rem;
 }
 
@@ -77,22 +77,24 @@
   font-weight: bold;
   margin-top: 1rem;
   font-size: 0.9rem;
-  color: #555;
+  color: #232606; /* Deep Green for label text */
 }
 .dashboard-form-input,
 .dashboard-form-textarea {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #ccc;
+  border: 1px solid #8C7569; /* Muted Brown border */
   border-radius: 6px;
   margin-top: 0.5rem;
   font-size: 1rem;
+  background-color: #FFFFFF; /* White background for inputs */
+  color: #232606; /* Deep Green text inside inputs */
 }
 .dashboard-form-input:focus,
 .dashboard-form-textarea:focus {
   outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  border-color: #D9C5AD; /* Warm Tan Accent on focus */
+  box-shadow: 0 0 5px rgba(217, 197, 173, 0.5); /* Warm Tan focus shadow */
   transition: all 0.2s ease-in-out;
 }
 .dashboard-form-textarea {
@@ -100,10 +102,9 @@
   min-height: 100px;
 }
 
-
 .dashboard-btn {
-  background-color: #007bff;
-  color: white;
+  background-color: #D9C5AD; /* Warm Tan Accent button */
+  color: #232606; /* Deep Green text on button */
   padding: 0.6rem 1.2rem;
   border: none;
   border-radius: 6px;
@@ -113,14 +114,13 @@
   display: inline-block;
 }
 .dashboard-btn:hover {
-  background-color: #0056b3;
+  background-color: #8C7569; /* Muted Brown on hover */
   transform: translateY(-2px);
 }
 .dashboard-btn:focus {
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  box-shadow: 0 0 5px rgba(217, 197, 173, 0.5); /* Warm Tan focus shadow */
 }
-
 
 @keyframes spin {
   0% {

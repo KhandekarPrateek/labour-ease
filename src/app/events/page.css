@@ -1,6 +1,6 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
+  background-color: #F2E8DC;  /* Beige Background */
   margin: 0;
   padding: 0;
 }
@@ -9,7 +9,7 @@ body {
   max-width: 1200px;
   margin: 40px auto;
   padding: 20px;
-  background: #fff;
+  background: #FFFFFF;  /* White background for the wrapper */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
@@ -18,7 +18,7 @@ h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 20px;
-  color: #333;
+  color: #232606;  /* Deep Green for title */
   position: relative;
   padding-bottom: 10px;
 }
@@ -27,7 +27,7 @@ h2::after {
   content: '';
   width: 80px;
   height: 4px;
-  background-color: #0073e6;
+  background-color: #D9C5AD;  /* Warm Tan Accent */
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -39,7 +39,7 @@ h2::after {
   padding: 10px;
   margin-bottom: 20px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 1px solid #8C7569;  /* Muted Brown for search input border */
   border-radius: 5px;
 }
 
@@ -54,8 +54,8 @@ h2::after {
   display: flex;
   width: 100%;
   max-width: 560px;
-  background: #0073e6;
-  color: #fff;
+  background: #232606;  /* Deep Green for event card */
+  color: #FFFFFF;  /* White text color */
   border-radius: 10px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -74,12 +74,13 @@ h2::after {
 .event-details h3 {
   font-size: 1.75rem;
   margin-bottom: 10px;
-  color: #fff;
+  color: #FFFFFF;  /* White text for event details */
 }
 
 .event-date,
 .event-location {
   margin-bottom: 5px;
+  color: #D9C5AD;  /* Warm Tan Accent for date and location */
 }
 
 .event-image-wrapper {
@@ -101,7 +102,7 @@ h2::after {
 }
 
 a {
-  color: #fff;
+  color: #D9C5AD;  /* Warm Tan Accent for link */
   text-decoration: underline;
   font-weight: bold;
   margin-top: 10px;
@@ -110,5 +111,5 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: #ffcc00;
+  color: #232606;  /* Deep Green for link hover */
 }

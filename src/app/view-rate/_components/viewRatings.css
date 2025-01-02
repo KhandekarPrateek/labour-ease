@@ -5,7 +5,7 @@
   align-items: center; /* Center vertically */
   height: 100vh; /* Full viewport height */
   padding: 20px;
-  background-color: #f8f9fa;
+  background-color: #F2E8DC;  /* Beige Background */
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -15,7 +15,7 @@
   width: 100%;
   max-width: 800px; /* Limit the maximum width */
   padding: 20px;
-  background-color: #ffffff; /* White background for inner content */
+  background-color: #FFFFFF; /* White background for inner content */
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center; /* Centers the content inside */
@@ -25,7 +25,7 @@
 h2 {
   font-family: 'Poppins', sans-serif;
   margin-bottom: 20px;
-  color: #333;
+  color: #232606;  /* Deep Green */
   font-size: 1.8rem;
 }
 
@@ -40,13 +40,13 @@ h2 {
 /* Rating card styling */
 .rating-card {
   padding: 20px;
-  background-color: #ffffff;
-  border: 1px solid #ddd;
+  background-color: #FFFFFF; /* White background */
+  border: 1px solid #D9C5AD;  /* Warm Tan Accent border */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: linear-gradient(to bottom right, #e6f7ff, #ffffff); /* Light blue gradient background */
-  color: #333;
+  background: linear-gradient(to bottom right, #D9C5AD, #FFFFFF); /* Warm Tan Accent to White gradient */
+  color: #232606;  /* Deep Green for text */
 }
 
 /* Hover effect for rating cards */
@@ -59,25 +59,25 @@ h2 {
 .rating-info h5 {
   font-size: 1.1rem;
   margin-bottom: 10px;
-  color: #007bff; /* Blue color for shopkeeper name */
+  color: #754E1A;  /* Earthy Brown for shopkeeper name */
 }
 
 .rating-info p {
   margin: 5px 0;
-  color: #555;
+  color: #8C7569;  /* Muted Brown for text */
   font-size: 1rem;
 }
 
 /* Add colors for the ratings */
 .rating-info p:first-of-type {
   font-weight: bold;
-  color: #28a745; /* Green color for ratings */
+  color: #28a745;  /* Green color for ratings */
 }
 
 /* Styling for the 'No ratings found' message */
 p.no-ratings {
   font-size: 1.1rem;
-  color: #999;
+  color: #8C7569;  /* Muted Brown for 'No ratings' message */
   font-style: italic;
   text-align: center;
 }

@@ -1,27 +1,36 @@
 /* Navbar Styling */
 .navbar {
-    background-color: #343a40;
+    background-color: #232606; /* Deep Green */
     padding: 15px;
-    color: rgb(30, 29, 29);
+    color: #FFFFFF; /* White Text */
 }
 
 .navbar .navbar-brand {
-    color: rgb(12, 12, 12);
+    color: #FFFFFF; /* White Text */
     font-size: 24px;
     font-weight: bold;
     text-decoration: none;
 }
 
-.navbar .navbar-links a {
-    color: white;
+.navbar .navbar-nav .nav-link {
+    color: #FFFFFF; /* White Text */
     margin-left: 20px;
     font-size: 16px;
     text-decoration: none;
     transition: color 0.3s;
 }
 
-.navbar .navbar-links a:hover {
-    color: #17a2b8;
+.navbar .navbar-nav .nav-link:hover {
+    color: #D9C5AD; /* Warm Tan Accent */
+}
+
+.navbar .navbar-nav .nav-link.active {
+    color: #D9C5AD; /* Warm Tan Accent for active link */
+}
+
+/* Optional: Update toggle icon color for visibility */
+.navbar-toggler-icon {
+    background-color: #FFFFFF; /* White */
 }
 
 /* Welcome Section */
@@ -32,7 +41,7 @@
 
 .welcome-container h1 {
     font-size: 32px;
-    color: #343a40;
+    color: #232606; /* Deep Green */
     font-weight: 600;
 }
 
@@ -41,7 +50,7 @@
     width: 90%;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: #F2E8DC; /* Beige Background */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -56,9 +65,10 @@
 
 .dashboard-header h2 {
     font-size: 24px;
-    color: #343a40;
+    color: #232606; /* Deep Green */
 }
 
+/* Filter Container */
 .filter-container {
     display: flex;
     align-items: center;
@@ -67,19 +77,20 @@
 .filter-container label {
     font-size: 16px;
     margin-right: 10px;
+    color: #232606; /* Deep Green */
 }
 
 .filter-select {
     padding: 5px 10px;
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid #8C7569; /* Muted Brown */
     outline: none;
     transition: border-color 0.3s;
 }
 
 .filter-select:hover {
-    border-color: #17a2b8;
+    border-color: #17a2b8; /* Neutral highlight */
 }
 
 /* Job Cards */
@@ -94,7 +105,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background-color: white;
+    background-color: #FFFFFF; /* White */
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s;
@@ -107,19 +118,19 @@
 .job-name {
     font-size: 18px;
     font-weight: bold;
-    color: #343a40;
+    color: #232606; /* Deep Green */
 }
 
 .job-details {
     display: flex;
     gap: 20px;
     font-size: 16px;
-    color: #6c757d;
+    color: #8C7569; /* Muted Brown */
 }
 
 .view-button button {
-    background-color: #17a2b8;
-    color: white;
+    background-color: #D9C5AD; /* Warm Tan Accent */
+    color: #232606; /* Deep Green */
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
@@ -129,5 +140,6 @@
 }
 
 .view-button button:hover {
-    background-color: #138496;
+    background-color: #754E1A; /* Earthy Brown */
+    color: #FFFFFF; /* White */
 }

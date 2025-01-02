@@ -108,15 +108,15 @@ export default function Home() {
 
 
         {/* Job Slider Section */}
-        <div className="row job-slider-section">
-            <div className="col">
-              <JobSlider />
-            </div>
-          </div>
 
+        <div className="job-slider-section">
+          <div className="col">
+            <JobSlider />
+          </div>
+        </div>
 
         {/* Popular Job Categories Section */}
-        <div className="row mb-4">
+        <div className="popular-jobs-section row mb-4">
           <h2 className="text-center fw-bold text-uppercase mb-3">
             Popular Job Categories
           </h2>
@@ -134,11 +134,7 @@ export default function Home() {
               <a
                 key={index}
                 href="#"
-                className="btn btn-outline-primary shadow-sm"
-                style={{
-                  borderRadius: "20px",
-                  padding: "10px 20px",
-                }}
+                className="btn btn-outline-primary shadow-sm category-btn"
               >
                 {category}
               </a>

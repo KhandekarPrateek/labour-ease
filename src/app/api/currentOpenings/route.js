@@ -17,7 +17,7 @@ from job_postings  WHERE shopkeeper_id = ${shopkeeperId}   `;
     const res = await sql`
       Select  *
 from job_postings  WHERE shopkeeper_id = ${shopkeeperId}   `;
-    console.log("Query result:", res.rows);
+    // console.log("Query result:", res.rows);
 
     
     return new Response(

@@ -70,6 +70,11 @@
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.popular{
+  margin-top: 50px;
+  transition: margin-top 0.3s ease;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .hero-section {
@@ -158,6 +163,7 @@
 /* Job Slider Section */
 .job-slider-section {
   margin-top: 10px; /* Space above the Job Slider */
+  margin-bottom : 100px;
   width: 100%; /* Ensure it spans full width of the container */
   max-width: 1200px; /* Adjust maximum width for larger screens */
   margin-left: auto; /* Center the slider */

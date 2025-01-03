@@ -39,6 +39,9 @@ export default function Login() {
         const data = await response.json();
         toast.dismiss();
         toast.success(data.message);
+  
+        // Store JWT token in localStorage (or use cookies for better security)
+        localStorage.setItem("authToken", data.token);
         localStorage.setItem("uniqueId", data.userID);
   
         const dashboardUrl =
@@ -58,6 +61,7 @@ export default function Login() {
       setIsLoading(false);
     }
   };
+  
 
   useEffect(() => {
     const handleScroll = () => {

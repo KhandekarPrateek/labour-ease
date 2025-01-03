@@ -1,4 +1,5 @@
 import { sql } from "@vercel/postgres";
+import jwt from "jsonwebtoken";
 
 // Define the generateUserId function outside the POST function
 function generateUserId(email) {
@@ -30,8 +31,20 @@ export async function POST(req) {
     if (user) {
       // Compare provided password with the plain text password in the database
       if (password === user.password) {
+        // Generate a JWT token
+        const token = jwt.sign(
+          { userID: user.id, role: user.role },
+          "your-secret-key",  // Replace with a secure secret key
+          { expiresIn: "1h" }
+        );
+
         return new Response(
-          JSON.stringify({ message: "Login successful", role: user.role , userID:user.id }),
+          JSON.stringify({ 
+            message: "Login successful", 
+            role: user.role, 
+            userID: user.id, 
+            token 
+          }),
           { status: 200 }
         );
       } else {

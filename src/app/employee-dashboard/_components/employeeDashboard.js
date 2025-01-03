@@ -1,84 +1,104 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
+import React, { useState, useEffect } from "react";
+import { useSearchParams, useRouter } from "next/navigation";
 import "./employeeDashboard.css";
 
 const EmpDashboardPage = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const userID = searchParams.get('userID');
+  const userID = searchParams.get("userID");
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [shopkeepers, setShopkeepers] = useState([]);
   const [reviews, setReviews] = useState([]);
-  const [isEditing, setIsEditing] = useState(false);
 
+  // Verify token on component mount
+  useEffect(() => {
+    const verifyToken = async () => {
+      const token = localStorage.getItem("authToken");
+
+      if (!token) {
+        router.push("/login");
+        return;
+      }
+
+      try {
+        const response = await fetch("/api/verifyToken", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ token }),
+        });
+
+        if (!response.ok) {
+          router.push("/login");
+        }
+      } catch (error) {
+        console.error("Token verification failed:", error);
+        router.push("/login");
+      }
+    };
+
+    verifyToken();
+  }, [router]);
+
+  // Fetch employee data
   useEffect(() => {
     const fetchEmployeeData = async () => {
+      setLoading(true);
       try {
         const response = await fetch(`/api/updateLabour?id=${userID}`);
         if (response.ok) {
           const data = await response.json();
           setProfile(data);
         } else {
-          console.error('Failed to fetch employee data');
+          console.error("Failed to fetch employee data");
         }
       } catch (error) {
-        console.error('Error fetching employee data:', error);
+        console.error("Error fetching employee data:", error);
       } finally {
         setLoading(false);
       }
     };
 
-    const fetchShopkeepers = async () => {
-      try {
-        const response = await fetch('/api/shopkeepers');
-        if (response.ok) {
-          const data = await response.json();
-          setShopkeepers(data);
-          setReviews(data.map(shopkeeper => ({ id: shopkeeper.id, rating: 0, review: '' })));
-        } else {
-          console.error('Failed to fetch shopkeepers');
-        }
-      } catch (error) {
-        console.error('Error fetching shopkeepers:', error);
-      }
-    };
-
-    fetchEmployeeData();
-    fetchShopkeepers();
+    if (userID) {
+      fetchEmployeeData();
+    } else {
+      console.error("No userID provided");
+    }
   }, [userID]);
 
   const handleLogout = async () => {
     localStorage.clear();
     try {
-      const response = await fetch('/api/logoutLabour', { method: 'POST' });
+      const response = await fetch("/api/logoutLabour", { method: "POST" });
       if (response.ok) {
-        router.push('/login');
+        router.push("/login");
       } else {
-        console.error('Logout failed');
+        console.error("Logout failed");
       }
     } catch (error) {
-      console.error('Error during logout:', error);
+      console.error("Error during logout:", error);
     }
   };
 
   const handleReviewChange = (shopkeeperId, field, value) => {
-    setReviews(prevReviews =>
-      prevReviews.map(review =>
+    setReviews((prevReviews) =>
+      prevReviews.map((review) =>
         review.id === shopkeeperId ? { ...review, [field]: value } : review
       )
     );
   };
 
   const handleReviewSubmit = async (shopkeeperId) => {
-    const currentReview = reviews.find(review => review.id === shopkeeperId);
+    const currentReview = reviews.find((review) => review.id === shopkeeperId);
     if (!currentReview) return;
 
     try {
-      const response = await fetch('/api/submitReview', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/submitReview", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           shopkeeperId,
           labourId: userID,
@@ -88,14 +108,14 @@ const EmpDashboardPage = () => {
       });
 
       if (response.ok) {
-        alert('Review submitted successfully!');
-        handleReviewChange(shopkeeperId, 'rating', 0);
-        handleReviewChange(shopkeeperId, 'review', '');
+        alert("Review submitted successfully!");
+        handleReviewChange(shopkeeperId, "rating", 0);
+        handleReviewChange(shopkeeperId, "review", "");
       } else {
-        console.error('Failed to submit review');
+        console.error("Failed to submit review");
       }
     } catch (error) {
-      console.error('Error submitting review:', error);
+      console.error("Error submitting review:", error);
     }
   };
 
@@ -115,29 +135,57 @@ const EmpDashboardPage = () => {
     <>
       <nav className="dashboard-navbar navbar navbar-expand-lg">
         <div className="container-fluid">
-          <a className="navbar-brand" href="#">Dashboard</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <a className="navbar-brand" href="#">
+            Dashboard
+          </a>
+          <button
+            className="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">Home</a>
+                <a className="nav-link active" aria-current="page" href="#">
+                  Home
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href={`/employee-profile?userID=${userID}`}>My Profile</a>
+                <a
+                  className="nav-link"
+                  href={`/employee-profile?userID=${userID}`}
+                >
+                  My Profile
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Settings</a>
+                <a className="nav-link" href="#">
+                  Settings
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href={`/employee-apply?userID=${userID}`}>Apply for Jobs</a>
+                <a
+                  className="nav-link"
+                  href={`/employee-apply?userID=${userID}`}
+                >
+                  Apply for Jobs
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href={`/view-rate?userID=${userID}`}>Your Ratings</a>
+                <a className="nav-link" href={`/view-rate?userID=${userID}`}>
+                  Your Ratings
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#" onClick={handleLogout}>Logout</a>
+                <a className="nav-link" href="#" onClick={handleLogout}>
+                  Logout
+                </a>
               </li>
             </ul>
           </div>
@@ -152,16 +200,27 @@ const EmpDashboardPage = () => {
             <p>No shopkeepers available.</p>
           ) : (
             <ul>
-              {shopkeepers.map(shopkeeper => (
+              {shopkeepers.map((shopkeeper) => (
                 <li key={shopkeeper.id}>
                   <h3>{shopkeeper.shop_name}</h3>
                   <div>
-                    <label className="dashboard-form-label">Rating (1-5):</label>
+                    <label className="dashboard-form-label">
+                      Rating (1-5):
+                    </label>
                     <input
                       className="dashboard-form-input"
                       type="number"
-                      value={reviews.find(review => review.id === shopkeeper.id)?.rating || 0}
-                      onChange={(e) => handleReviewChange(shopkeeper.id, 'rating', Number(e.target.value))}
+                      value={
+                        reviews.find((review) => review.id === shopkeeper.id)
+                          ?.rating || 0
+                      }
+                      onChange={(e) =>
+                        handleReviewChange(
+                          shopkeeper.id,
+                          "rating",
+                          Number(e.target.value)
+                        )
+                      }
                       min="1"
                       max="5"
                     />
@@ -170,8 +229,13 @@ const EmpDashboardPage = () => {
                     <label className="dashboard-form-label">Review:</label>
                     <textarea
                       className="dashboard-form-textarea"
-                      value={reviews.find(review => review.id === shopkeeper.id)?.review || ''}
-                      onChange={(e) => handleReviewChange(shopkeeper.id, 'review', e.target.value)}
+                      value={
+                        reviews.find((review) => review.id === shopkeeper.id)
+                          ?.review || ""
+                      }
+                      onChange={(e) =>
+                        handleReviewChange(shopkeeper.id, "review", e.target.value)
+                      }
                     />
                   </div>
                   <button

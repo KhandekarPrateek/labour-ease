@@ -157,28 +157,16 @@
 
 /* Job Slider Section */
 .job-slider-section {
-  margin-bottom: 30px; /* Space between Job Slider and Popular Job Categories */
+  margin-top: 10px; /* Space above the Job Slider */
+  width: 100%; /* Ensure it spans full width of the container */
+  max-width: 1200px; /* Adjust maximum width for larger screens */
+  margin-left: auto; /* Center the slider */
+  margin-right: auto; /* Center the slider */
+  padding: 0 20px; /* Add padding for spacing */
+  height: 400px; /* Set the desired height */
+  display: flex; /* Ensure child elements align properly */
+  align-items: center; /* Vertically center the content */
 }
-
-.popular-jobs-section {
-  margin-top: 50px; /* Add space above Popular Jobs */
-}
-
-/* Truncate descriptions with ellipsis */
-.truncate-description {
-  max-height: 400px; /* Maximum height for the description */
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-/* Use ellipsis for multiline truncation */
-.truncate-multiline {
-  display: -webkit-box;
-  -webkit-line-clamp: 5; /* Number of lines to show */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+        
 
 

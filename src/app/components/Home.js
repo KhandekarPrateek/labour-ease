@@ -116,7 +116,7 @@ export default function Home() {
 
 
         {/* Popular Job Categories Section */}
-        <div className="row mb-4">
+        <div className="row mb-4 popular">
           <h2 className="text-center fw-bold text-uppercase mb-3">
             Popular Job Categories
           </h2>

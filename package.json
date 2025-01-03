@@ -22,8 +22,11 @@
     "react-fast-marquee": "^1.6.5",
     "react-hot-toast": "^2.4.1",
     "react-router-dom": "^7.1.1",
+    "react-slick": "^0.30.3",
     "react-toastify": "^10.0.5",
-    "react-type-animation": "^3.2.0"
+    "react-type-animation": "^3.2.0",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^11.2.0"
   },
   "devDependencies": {
     "css-loader": "^7.1.2",

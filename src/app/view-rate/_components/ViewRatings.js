@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import { toast } from "react-hot-toast";
 import "./viewRatings.css"; // Add your custom styles here
+import EmployeeNavbar from "@/app/employee-navbar/EmployeeNavbar";
 
 const ViewRatings = () => {
   const searchParams = useSearchParams();
@@ -50,6 +51,8 @@ const ViewRatings = () => {
   };
 
   return (
+    <>
+    <EmployeeNavbar/>
     <div className="ratings-container">
       <div className="ratings-inner-container">
         <h2>Your Ratings and Reviews</h2>
@@ -73,6 +76,8 @@ const ViewRatings = () => {
         )}
       </div>
     </div>
+    </>
+
   );
 };
 

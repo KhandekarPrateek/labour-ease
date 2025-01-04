@@ -4,6 +4,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import "./EmployeeProfile.css";
 import Link from 'next/link';
 import { skillsData } from '@/app/skillsDatabase'; // Assuming skillsData is available
+import EmployeeNavbar from '@/app/employee-navbar/EmployeeNavbar';
 
 const EmployeeProfile = () => {
   const searchParams = useSearchParams();
@@ -50,41 +51,6 @@ const EmployeeProfile = () => {
         : [...prevSkills, value]
     );
   };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setIsEditing(false);
-
-  //   const updatedProfile = { ...profile, skills };
-
-  //   try {
-  //     const response = await fetch("/api/updateLabour", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(updatedProfile),
-  //     });
-
-  //     if (response.ok) {
-  //       const data = await response.json();
-  //       console.log(data.message);
-
-  //       const updatedResponse = await fetch(`/api/updateLabour?id=${userID}`);
-  //       if (updatedResponse.ok) {
-  //         const updatedData = await updatedResponse.json();
-  //         setProfile(updatedData);
-  //       } else {
-  //         console.error('Failed to fetch updated profile data');
-  //       }
-  //     } else {
-  //       const errorData = await response.json();
-  //       console.error(errorData.message);
-  //     }
-  //   } catch (error) {
-  //     console.error("Failed to update profile", error);
-  //   }
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -166,6 +132,7 @@ const EmployeeProfile = () => {
 
   return (
     <>
+    <EmployeeNavbar/>
       <div className="container mt-5">
         <div className="row">
           <div className="col-md-4">

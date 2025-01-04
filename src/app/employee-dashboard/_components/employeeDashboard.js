@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import "./employeeDashboard.css";
+import EmployeeNavbar from "@/app/employee-navbar/EmployeeNavbar";
 
 const EmpDashboardPage = () => {
   const searchParams = useSearchParams();
@@ -69,21 +70,7 @@ const EmpDashboardPage = () => {
     }
   }, [userID]);
 
-  const handleLogout = async () => {
-    localStorage.clear();
-    try {
-      const response = await fetch("/api/logoutLabour", { method: "POST" });
-      if (response.ok) {
-        router.push("/login");
-      } else {
-        console.error("Logout failed");
-      }
-    } catch (error) {
-      console.error("Error during logout:", error);
-    }
-  };
-
-  const handleReviewChange = (shopkeeperId, field, value) => {
+    const handleReviewChange = (shopkeeperId, field, value) => {
     setReviews((prevReviews) =>
       prevReviews.map((review) =>
         review.id === shopkeeperId ? { ...review, [field]: value } : review
@@ -133,7 +120,7 @@ const EmpDashboardPage = () => {
 
   return (
     <>
-      <nav className="dashboard-navbar navbar navbar-expand-lg">
+      {/* <nav className="dashboard-navbar navbar navbar-expand-lg">
         <div className="container-fluid">
           <a className="navbar-brand" href="#">
             Dashboard
@@ -190,8 +177,8 @@ const EmpDashboardPage = () => {
             </ul>
           </div>
         </div>
-      </nav>
-
+      </nav> */}
+    <EmployeeNavbar/>
       <div className="dashboard-container">
         <h1 className="dashboard-welcome">Welcome {profile.name}</h1>
         <div className="dashboard-shopkeepers">

@@ -2,6 +2,8 @@
 
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import Card from './Card';
+import './jobOpenings.css';
 
 const JobData = () => {
   const [jobs, setJobs] = useState([]);
@@ -37,22 +39,21 @@ const JobData = () => {
         },
         body: JSON.stringify({ jobId }),
       });
-  
+
       if (!response.ok) {
         throw new Error('Failed to delete the job');
       }
-  
+
       setJobs((prevJobs) => prevJobs.filter((job) => job.id !== jobId));
       toast.success('Job posting deleted successfully');
     } catch (error) {
       toast.error('Failed to delete job posting');
     }
   };
-  
 
   if (loading) {
     return (
-      <div className="spinner-container text-center mt-5">
+      <div className="spinner-container text-center">
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>
         </div>
@@ -67,20 +68,8 @@ const JobData = () => {
       <div className="row">
         {jobs.length > 0 ? (
           jobs.map((job) => (
-            <div key={job.id} className="col-md-4 mb-4">
-              <div className="card">
-                <div className="card-body">
-                  <h5 className="card-title">{job.title}</h5>
-                  <h6 className="card-subtitle mb-2 text-muted">{job.company}</h6>
-                  <p className="card-text">{job.description}</p>
-                  <button 
-                    className="btn btn-danger mt-3"
-                    onClick={() => handleDelete(job.id)}
-                  >
-                    Delete
-                  </button>
-                </div>
-              </div>
+            <div key={job.id} className="col-lg-4 col-md-6 mb-4">
+              <Card job={job} onDelete={handleDelete} />
             </div>
           ))
         ) : (

@@ -75,10 +75,10 @@ const JobData = () => {
         />
       </div>
 
-      <div className="row">
+      <div className="row gap-0 ">
         {filteredJobs.length > 0 ? (
           filteredJobs.map((job) => (
-            <div key={job.id} className="col-md-4 mb-4">
+            <div key={job.id} className="col-12 col-md-6 ">
               <Card job={job} />
             </div>
           ))

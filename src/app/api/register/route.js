@@ -1,4 +1,5 @@
 import { sql } from "@vercel/postgres";
+import jwt from "jsonwebtoken";
 
 function generateUserId(email) {
   const localPart = email.split('@')[0];
@@ -35,18 +36,27 @@ export async function POST(req) {
     if (role === 'shopkeeper') {
       await sql`
         INSERT INTO shopkeepers (id, shop_name, shop_address, shop_phone, bio)
-        VALUES (${userId}, 'Edit', 'Edit', 'Edit','Edit')
+        VALUES (${userId}, 'Edit', 'Edit', 'Edit', 'Edit')
       `;
     }
     if (role === 'labour') {
       await sql`
         INSERT INTO labours (id, name, phone, address, experience)
-        VALUES (${userId}, 'Edit', 'Edit', 'Edit','Edit')
+        VALUES (${userId}, 'Edit', 'Edit', 'Edit', 'Edit')
       `;
     }
-    return new Response(JSON.stringify({ message: "User registered successfully", userId }), {
-      status: 200,
-    });
+
+    // Generate a JWT token
+    const token = jwt.sign(
+      { id: userId, email, role }, // Payload
+      process.env.JWT_SECRET,     // Secret key
+      { expiresIn: '1h' }         // Token expiry
+    );
+
+    return new Response(
+      JSON.stringify({ message: "User registered successfully", token, userId }),
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Database error:", error);
     return new Response(JSON.stringify({ error: "Failed to register user" }), {

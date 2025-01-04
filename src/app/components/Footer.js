@@ -4,16 +4,10 @@ import "./Footer.css";
 export default function Footer() {
   return (
     <div>
-      <div className="highlight">
+      <p className="highlight">
           FAQ
-        </div>
-      <footer
-        className="footer  footer-dark"
-        style={{padding:50}}
-      >
-       
-        <div>
-        
+        </p>
+      <footer className="footer footer-dark" >        
           <div className="accordion" id="accordionExample">
             <div className="accordion-item">
               <h2 className="accordion-header">
@@ -85,15 +79,12 @@ export default function Footer() {
               </div>
             </div>
           </div>
-        </div>
-        <div className="container">
-          <p>
-            <a href="/faq">More FAQ</a>
-          </p>
-        </div>
-        <div className="container">
-          <p style={{color: 'black'}}>&copy; 2024 LabourEase</p>
-        </div>
+          <p className="footer-link-container">
+  <a href="/faq" className="footer-link">More FAQ</a>
+</p>
+
+<p className="footer-copyright">&copy; 2024 LabourEase</p>
+
         
       </footer>
     </div>

@@ -34,6 +34,14 @@ const JobPosting = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Ensure description is at least 100 words
+    const wordCount = description.trim().split(/\s+/).length;
+    if (wordCount < 100) {
+      toast.error('Description must be at least 100 words.');
+      return;
+    }
+
     setLoading(true);
     toast.loading("Loading...");
   
@@ -69,7 +77,6 @@ const JobPosting = () => {
       setLoading(false);
     }
   };
-  
 
   return (
     <>
@@ -99,6 +106,7 @@ const JobPosting = () => {
       </nav>
       <div className="container mt-5">
         <h2>Create Job Posting</h2>
+        <p className="description-note">* Note: The job description must be of atleast 100 words.</p>
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="title" className="form-label">Job Title</label>

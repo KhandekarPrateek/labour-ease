@@ -4,7 +4,7 @@ import './Navbar.css';
 const Navbar = () => {
   const userRole = "shopkeeper";
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="navbar navbar-expand-lg ">
       <div className="container-fluid">
         <Link href="/" className="navbar-brand">LabourEase</Link>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,17 +19,11 @@ const Navbar = () => {
               <Link href="/login" className="nav-link">Login</Link>
             </li>
             <li className="nav-item">
-              <Link href="/register" className="nav-link signup-link">Sign-Up</Link>
+              <Link href="/register" className="nav-link">Sign-Up</Link>
             </li>
             <li className="nav-item">
               <Link href="/events" className="nav-link">Events</Link>
-            </li>
-            {/* <li className="nav-item">
-              <Link href={userRole === 'shopkeeper' ? '/shopkeeper-profile' : '/employee-profile'} className="nav-link">
-                {userRole === 'shopkeeper' ? 'Shopkeeper Profile' : 'Employee Profile'}
-              </Link>
-            </li> */}
-           
+            </li>      
           </ul>
         </div>
       </div>

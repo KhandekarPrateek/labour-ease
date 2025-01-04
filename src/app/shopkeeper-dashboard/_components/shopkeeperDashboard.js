@@ -18,6 +18,35 @@ const ShopkeeperDashboard = () => {
     const [viewApplicants, setViewApplicants] = useState(null); // State for selected applicants and job posting ID
 
     useEffect(() => {
+        const verifyToken = async () => {
+          const token = localStorage.getItem("authToken");
+    
+          if (!token) {
+            router.push("/login");
+            return;
+          }
+    
+          try {
+            const response = await fetch("/api/verifyToken", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ token }),
+            });
+    
+            if (!response.ok) {
+              router.push("/login");
+            }
+          } catch (error) {
+            console.error("Token verification failed:", error);
+            router.push("/login");
+          }
+        };
+    
+        verifyToken();
+      }, [router]);
+    useEffect(() => {
         const storedShopkeeperId = searchParams.get('userID');
         if (storedShopkeeperId && storedShopkeeperId !== shopkeeperId) {
             setShopkeeperId(storedShopkeeperId);
@@ -44,7 +73,6 @@ const ShopkeeperDashboard = () => {
             if (response.ok) {
                 const data = await response.json();
                 setJobPostings(data.job_postings);
-                toast.success('Data fetched successfully!');
             } else {
                 const errorData = await response.json();
                 toast.error(`Failed to fetch data. Error: ${errorData.message || 'Unknown error'}`);

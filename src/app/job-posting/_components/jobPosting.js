@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { skillsData } from "@/app/skillsDatabase";
 import toast from "react-hot-toast";
 import './jobPosting.css';
+import ShopkeeperNavabar from "@/app/shopkeeper-navbar/shopkeeperNavbar";
 
 const JobPosting = () => {
   const [userID, setUserID] = useState(null);
@@ -80,30 +81,7 @@ const JobPosting = () => {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
-        <div className="container-fluid">
-          <a className="navbar-brand" href={`shopkeeper-dashboard?userID=${userID}`}>Dashboard</a>
-          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <a className="nav-link active" href="#">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href={`shopkeeper-profile?userID=${userID}`}>Profile</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="job-posting">Add Job Posting</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="#">Logout</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <ShopkeeperNavabar/>
       <div className="container mt-5">
         <h2>Create Job Posting</h2>
         <p className="description-note">* Note: The job description must be of atleast 100 words.</p>

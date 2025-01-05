@@ -5,6 +5,7 @@ import "./employeeNavbar.css"
 const EmployeeNavbar=()=>{
       const searchParams = useSearchParams();
   const userID = searchParams.get("userID");
+  const router = useRouter();
   const handleLogout = async () => {
     localStorage.clear();
     try {

@@ -4,7 +4,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import ViewApplicants from './ViewApplicants';
 import './shopkeeperDashboard.css';
-import ShopkeeperNavabar from '@/app/shopkeeper-navbar/shopkeeperNavbar';
+import ShopkeeperNavbar from '@/app/shopkeeper-navbar/shopkeeperNavbar';
 
 const ShopkeeperDashboard = () => {
     const searchParams = useSearchParams();
@@ -156,7 +156,7 @@ const ShopkeeperDashboard = () => {
                 />
             ) : (
                 <>
-                    <ShopkeeperNavabar/>
+                    <ShopkeeperNavbar/>
 
                     <div className="container mt-4">
                         <div className="dashboard-header d-flex justify-content-between align-items-center mb-3">

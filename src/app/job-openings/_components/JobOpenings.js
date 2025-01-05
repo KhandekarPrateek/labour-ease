@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import Card from './Card';
 import './jobOpenings.css';
-import ShopkeeperNavabar from '@/app/shopkeeper-navbar/shopkeeperNavbar';
+import ShopkeeperNavbar from '@/app/shopkeeper-navbar/shopkeeperNavbar';
 
 const JobData = () => {
   const [jobs, setJobs] = useState([]);
@@ -56,7 +56,7 @@ const JobData = () => {
     return (
 
       <>
-      <ShopkeeperNavabar/>
+      <ShopkeeperNavbar/>
       <div className="spinner-container text-center">
         <div className="spinner-border" role="status">
           <span className="visually-hidden">Loading...</span>
@@ -69,7 +69,7 @@ const JobData = () => {
 
   return (
     <>
-      <ShopkeeperNavabar/>
+      <ShopkeeperNavbar/>
 
     <div className="container mt-5 job-data-container">
       <h2 className="text-center mb-4">Available Job Postings</h2>

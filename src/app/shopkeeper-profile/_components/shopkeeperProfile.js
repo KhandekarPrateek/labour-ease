@@ -9,7 +9,7 @@ import {
   FileText, 
   Edit 
 } from 'lucide-react';
-import ShopkeeperNavabar from '@/app/shopkeeper-navbar/shopkeeperNavbar';
+import ShopkeeperNavbar from '@/app/shopkeeper-navbar/shopkeeperNavbar';
 
 const ShopkeeperProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -88,7 +88,7 @@ const ShopkeeperProfilePage = () => {
 
   return (
     <>
-    <ShopkeeperNavabar/>
+    <ShopkeeperNavbar/>
     <div className="background-container">
       <div className="card">
         {/* Default View */}

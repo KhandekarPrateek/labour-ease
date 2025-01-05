@@ -5,7 +5,7 @@ import React from "react";
 import './shopkeeperNavbar.css'
 
 
-const ShopkeeperNavabar=()=>{
+const ShopkeeperNavbar=()=>{
     const searchParams = useSearchParams();
         const userID = searchParams.get('userID');
         const router = useRouter();
@@ -48,4 +48,4 @@ const ShopkeeperNavabar=()=>{
         </>
     )
 }
-export default ShopkeeperNavabar;
+export default ShopkeeperNavbar;

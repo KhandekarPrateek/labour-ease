@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { skillsData } from "@/app/skillsDatabase";
 import toast from "react-hot-toast";
 import './jobPosting.css';
-import ShopkeeperNavabar from "@/app/shopkeeper-navbar/shopkeeperNavbar";
+import ShopkeeperNavbar from "@/app/shopkeeper-navbar/shopkeeperNavbar";
 
 const JobPosting = () => {
   const [userID, setUserID] = useState(null);
@@ -81,7 +81,7 @@ const JobPosting = () => {
 
   return (
     <>
-      <ShopkeeperNavabar/>
+      <ShopkeeperNavbar/>
       <div className="container mt-5">
         <h2>Create Job Posting</h2>
         <p className="description-note">* Note: The job description must be of atleast 100 words.</p>

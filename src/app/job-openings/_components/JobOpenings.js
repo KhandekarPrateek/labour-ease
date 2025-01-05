@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import Card from './Card';
 import './jobOpenings.css';
-import ShopkeeperNavbar from '@/app/shopkeeper-navbar/shopkeeperNavbar';
+import ShopkeeperNavbar from '@/app/ShopkeeperNavbar/ShopkeeperNavbar';
 
 const JobData = () => {
   const [jobs, setJobs] = useState([]);

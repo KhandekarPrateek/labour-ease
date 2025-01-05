@@ -4,7 +4,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import ViewApplicants from './ViewApplicants';
 import './shopkeeperDashboard.css';
-import ShopkeeperNavbar from '@/app/shopkeeper-navbar/shopkeeperNavbar';
+import ShopkeeperNavbar from '@/app/ShopkeeperNavbar/ShopkeeperNavbar';
 
 const ShopkeeperDashboard = () => {
     const searchParams = useSearchParams();

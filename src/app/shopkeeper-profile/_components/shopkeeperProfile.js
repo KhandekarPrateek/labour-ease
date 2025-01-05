@@ -9,7 +9,7 @@ import {
   FileText, 
   Edit 
 } from 'lucide-react';
-import ShopkeeperNavbar from '@/app/shopkeeper-navbar/shopkeeperNavbar';
+import ShopkeeperNavbar from '@/app/ShopkeeperNavbar/ShopkeeperNavbar';
 
 const ShopkeeperProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);

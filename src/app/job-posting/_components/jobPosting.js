@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { skillsData } from "@/app/skillsDatabase";
 import toast from "react-hot-toast";
 import './jobPosting.css';
-import ShopkeeperNavbar from "@/app/shopkeeper-navbar/shopkeeperNavbar";
+import ShopkeeperNavbar from "@/app/ShopkeeperNavbar/ShopkeeperNavbar";
 
 const JobPosting = () => {
   const [userID, setUserID] = useState(null);

@@ -1,109 +1,338 @@
-/* General styling for the container */
+/* Container and Card Base Styles */
 .background-container {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: #F2E8DC; /* Beige Background */
+  background-color: #F2E8DC;
+  padding: 20px;
+  position: relative; /* Add this */
 }
-
-.blurred {
-  backdrop-filter: blur(8px);
-}
-
-/* Card styling */
 .card {
+  position: relative;
   width: 100%;
   max-width: 600px;
+  min-height: 300px;
   border-radius: 20px;
-  background-color: #FFFFFF; /* White */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #9BC1B1;
+  padding: 30px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.card-title {
-  color: #232606; /* Deep Green */
+/* Profile Header Styles */
+.profile-header {
+  display: flex;
+  gap: 25px;
+  align-items: flex-start;
+  margin-bottom: 30px;
+}
+
+.profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.profile-initials {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  color: #232606;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-icon {
+  width: 24px;
+  height: 24px;
+  color: #232606;
+}
+
+.info-label {
+  font-weight: 600;
+  color: #232606;
+  font-size: 16px;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Profile Content (Hover State) */
+.profile-content {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background-color: #FFFFFF;
+  padding: 30px;
+  transition: left 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.card:hover .profile-content {
+  left: 0;
+}
+
+.content-section {
+  margin-bottom: 20px;
+}
+
+.content-heading {
+  font-weight: 600;
+  color: #232606;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.content-text {
+  color: #4A4A4A;
+  line-height: 1.6;
+  margin: 0;
+  word-wrap: break-word;
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Scrollbar Styling */
+.content-text::-webkit-scrollbar {
+  width: 6px;
+}
+
+.content-text::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.content-text::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+/* Edit Button */
+.edit-button {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background-color: #232606;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.edit-button:hover {
+  background-color: #8C7569;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Styles */
+.edit-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 600px;
+  z-index: 1000;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .form-control {
-  border-radius: 15px;
-  border-color: #232606; /* Deep Green */
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
 }
 
-.btn-primary {
-  border-radius: 15px;
-  background-color: #232606; /* Deep Green */
-  border-color: #232606; /* Deep Green */
+.form-control:focus {
+  border-color: #232606;
+  outline: none;
 }
 
-.btn-primary:hover {
-  background-color: #8C7569; /* Muted Brown */
-  border-color: #8C7569; /* Muted Brown */
-}
-
-.btn-secondary {
-  border-radius: 15px;
-  background-color: #6c757d; /* Default grey color */
-  border-color: #6c757d; /* Default grey */
-}
-
-.btn-secondary:hover {
-  background-color: #8C7569; /* Muted Brown */
-  border-color: #8C7569; /* Muted Brown */
-}
-
-.text-muted {
-  font-size: 18px;
-  color: #6c757d; /* Muted grey */
-}
-
-/* Spinner for loading */
-.spinner-container {
+.form-buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
+  gap: 15px;
+  justify-content: flex-end;
 }
 
-.loader {
-  border: 8px solid #f3f3f3;
-  border-top: 8px solid #232606; /* Deep Green */
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  animation: spin 1s linear infinite;
+/* Responsive Design */
+@media (max-width: 480px) {
+  .card {
+    padding: 20px;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-info {
+    align-items: center;
+  }
+
+  .edit-button {
+    position: static;
+    margin-top: 20px;
+    width: 100%;
+    justify-content: center;
+  }
 }
 
-/* Profile Initials */
-.profile-initials {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #232606; /* Deep Green */
-  color: #FFFFFF; /* White Text */
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998; /* Lower than the form */
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-size: 24px;
-  font-weight: bold;
+  align-items: center;
 }
 
-/* Card Image Top for profile section */
-.card-img-top {
-  background-color: #2596be; /* Placeholder for profile image background (use for image or initials) */
-  color: #ffffff; /* Text color for initials */
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+/* Edit Form */
+.edit-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 600px;
+  z-index: 999; /* Higher than backdrop */
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* Form Controls */
+.form-control {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: #232606;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(35, 38, 6, 0.1);
+}
+
+/* Form Labels */
+.form-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #232606;
+}
+
+/* Form Button Container */
+.form-buttons {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px auto;
-  font-size: 40px;
-  font-weight: bold;
+  gap: 15px;
+  justify-content: flex-end;
+  margin-top: 20px;
 }
 
-/* Keyframe for spinner animation */
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+/* Edit Form Buttons */
+.edit-form .edit-button {
+  position: static;
+  padding: 10px 20px;
+  min-width: 120px;
+}
+
+/* Responsive Design for Modal */
+@media (max-width: 480px) {
+  .edit-form {
+    width: 95%;
+    padding: 20px;
+    max-height: 80vh;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .edit-form .edit-button {
+    width: 100%;
+  }
+}
+
+/* Add smooth transition for modal */
+.modal-backdrop {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal-backdrop.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.edit-form {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -45%);
+  transition: all 0.3s ease;
+}
+
+.edit-form.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%);
 }

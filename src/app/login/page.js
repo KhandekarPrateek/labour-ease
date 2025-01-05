@@ -88,7 +88,7 @@ export default function Login() {
         <div className="modal-container">
           <div className="modal-left">
             <h1 className="modal-title">Welcome!</h1>
-            <p className="modal-desc">Fanny pack hexagon food truck, street art waistcoat kitsch.</p>
+            <p className="modal-desc">Log in to manage your profile, post jobs, or find your next gig!</p>
             <form onSubmit={handleOnSubmit}>
               <div className="input-block">
                 <label htmlFor="email" className="input-label">Email</label>

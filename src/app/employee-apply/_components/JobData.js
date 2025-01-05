@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card';
 import './JobData.css';
 import toast from 'react-hot-toast';
+import EmployeeNavbar from '@/app/employee-navbar/EmployeeNavbar';
 
 const JobData = () => {
   const [jobs, setJobs] = useState([]);
@@ -60,6 +61,8 @@ const JobData = () => {
   }
 
   return (
+    <>
+    <EmployeeNavbar/>
     <div className="container mt-5 job-data-container">
       <h2 className="text-center">Available Job Postings</h2>
 
@@ -87,6 +90,8 @@ const JobData = () => {
         )}
       </div>
     </div>
+    
+    </>
   );
 };
 

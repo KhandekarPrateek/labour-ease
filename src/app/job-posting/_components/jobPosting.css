@@ -1,0 +1,124 @@
+/* Basic reset and container styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #F2E8DC; /* Beige Background */
+  color: #232606; /* Deep Green Text */
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #FFFFFF; /* White background */
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Form styling */
+h2 {
+  margin-bottom: 20px;
+  font-size: 30px;
+  color: #232606; /* Deep Green */
+  text-align: center;
+  position: relative;
+}
+
+h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: #D9C5AD; /* Warm Tan Accent */
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.form-control {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #8C7569; /* Muted Brown */
+  transition: border-color 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  border-color: #232606; /* Deep Green */
+  outline: none;
+}
+
+textarea.form-control {
+  resize: none;
+  height: 150px;
+}
+
+button[type="submit"] {
+  background-color: #232606; /* Deep Green */
+  border-color: #232606;
+  color: #FFFFFF;
+  font-size: 18px;
+  padding: 12px 25px;
+  border-radius: 6px;
+  transition: background-color 0.3s ease-in-out;
+  width: 100%;
+  margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+  background-color: #8C7569; /* Muted Brown on hover */
+  border-color: #8C7569;
+}
+
+/* Dropdown styling */
+.skills-dropdown {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #8C7569; /* Muted Brown */
+  padding: 10px;
+  background-color: white;
+  margin-top: 10px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.skills-dropdown .form-check {
+  margin-bottom: 12px;
+}
+
+.skills-dropdown p {
+  color: #6c757d;
+  font-size: 14px;
+}
+
+.description-note {
+  color: #D9534F; /* Red for description note */
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+      padding: 15px;
+  }
+
+  h2 {
+      font-size: 26px;
+  }
+
+  .form-control {
+      font-size: 15px;
+  }
+
+  button[type="submit"] {
+      font-size: 16px;
+      padding: 10px 20px;
+  }
+}

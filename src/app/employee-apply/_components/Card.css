@@ -1,0 +1,148 @@
+/* Job Card */
+.job-card {
+  margin-bottom: 20px;
+}
+
+/* Card Styling */
+.card {
+  border: 1px solid #D9C5AD;  /* Warm Tan Accent border */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card Body */
+.card-body {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  margin-bottom: 15px;
+  color: #232606;  /* Deep Green for card title */
+}
+
+.card-text {
+  font-size: 1rem;
+  color: #8C7569;  /* Muted Brown for text */
+  margin-bottom: 15px;
+}
+
+/* Button Primary */
+.btn-primary {
+  background-color: #754E1A;  /* Earthy Brown Accent */
+  border-color: #754E1A;
+  transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #232606;  /* Deep Green on hover */
+  border-color: #232606;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* Modal Container */
+.modal-container {
+  background-color: #FFFFFF;  /* White background for modal */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  transform: translateZ(10px);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  overflow: hidden;
+}
+
+/* Modal Header */
+.modal-header {
+  border-bottom: 1px solid #D9C5AD;  /* Warm Tan Accent border */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+
+.modal-title {
+  color: #232606;  /* Deep Green title */
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+/* Close Button */
+.close {
+  font-size: 1.5rem;
+  color: #575656;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #F2E8DC;  /* Beige highlight on hover */
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 20px;
+}
+
+.modal-body p {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #8C7569;  /* Muted Brown for text */
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 16px;
+  border-top: 1px solid #D9C5AD;  /* Warm Tan Accent border */
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* Secondary Button */
+.btn-secondary {
+  background-color: #F2E8DC;  /* Beige background for secondary button */
+  border-color: #F2E8DC15;
+}
+
+.btn-secondary:hover {
+  background-color: #D9C5AD;  /* Warm Tan Accent on hover */
+}
+
+/* Modal Footer Button Primary */
+.modal-footer .btn-primary {
+  background-color: #754E1A;  /* Earthy Brown Accent */
+  border-color: #754E1A;
+}
+
+.modal-footer .btn-primary:hover {
+  background-color: #232606;  /* Deep Green on hover */
+  border-color: #232606;
+}
+
+/* Modal Footer Button Styling */
+.modal-footer .btn {
+  padding: 10px 20px;
+}

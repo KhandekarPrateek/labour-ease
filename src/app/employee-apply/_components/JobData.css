@@ -1,0 +1,85 @@
+
+.job-data-container {
+  padding: 20px;
+  background-color: #F2E8DC;  /* Beige Background */
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.job-data-container h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #232606;  /* Deep Green */
+  margin-bottom: 30px;
+}
+
+.no-jobs {
+  font-size: 1.2rem;
+  color: #8C7569;  /* Muted Brown */
+  margin-top: 20px;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  color: #754E1A;  /* Earthy Brown */
+}
+
+.spinner-container p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  color: #8C7569;  /* Muted Brown */
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-bar input {
+  width: 100%;
+  max-width: 400px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #D9C5AD;  /* Warm Tan Accent border */
+}
+
+/* Flexbox Layout for Equal Card Sizes */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Adjust spacing between cards */
+}
+
+.col-md-4 {
+  display: flex;
+  justify-content: center;
+  flex: 1 1 30%; /* Allow cards to shrink or grow but take 30% of the row width */
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid #D9C5AD;  /* Warm Tan Accent border */
+  border-radius: 5px;
+  background-color: #FFFFFF;  /* White background for card */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.card-body {
+  flex-grow: 1; /* Ensures the card body takes up all available space */
+}
+
+.card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}

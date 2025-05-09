@@ -1,0 +1,141 @@
+/* Updated Theme Dashboard Styles */
+.dashboard-body {
+  font-family: 'Arial', sans-serif;
+  background-color: #F2E8DC;  /* Beige Background */
+  margin: 0;
+  padding: 0;
+  color: #232606;  /* Deep Green for text */
+}
+
+.dashboard-navbar {
+  background-color: #232606;  /* Deep Green */
+  color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.dashboard-navbar .navbar-brand,
+.dashboard-navbar .nav-link {
+  color: white !important;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.dashboard-navbar .nav-link:hover {
+  text-decoration: underline;
+  color: #D9C5AD; /* Warm Tan Accent on hover */
+}
+
+.dashboard-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #FFFFFF; /* White background for container */
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard-welcome {
+  color: #232606; /* Deep Green for text */
+  font-size: 2.2rem;
+  margin-top: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.dashboard-shopkeepers {
+  margin-top: 2rem;
+}
+.dashboard-shopkeepers h2 {
+  color: #232606; /* Deep Green for headings */
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.dashboard-shopkeepers ul {
+  list-style-type: none;
+  padding: 0;
+}
+.dashboard-shopkeepers li {
+  background: #FFFFFF;  /* White background for list items */
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border: 1px solid #D9C5AD; /* Warm Tan Accent border */
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.dashboard-shopkeepers li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+.dashboard-shopkeepers li h3 {
+  margin: 0;
+  color: #232606; /* Deep Green for subheadings */
+  font-size: 1.5rem;
+}
+
+.dashboard-form-label {
+  display: block;
+  font-weight: bold;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #232606; /* Deep Green for label text */
+}
+.dashboard-form-input,
+.dashboard-form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #8C7569; /* Muted Brown border */
+  border-radius: 6px;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  background-color: #FFFFFF; /* White background for inputs */
+  color: #232606; /* Deep Green text inside inputs */
+}
+.dashboard-form-input:focus,
+.dashboard-form-textarea:focus {
+  outline: none;
+  border-color: #D9C5AD; /* Warm Tan Accent on focus */
+  box-shadow: 0 0 5px rgba(217, 197, 173, 0.5); /* Warm Tan focus shadow */
+  transition: all 0.2s ease-in-out;
+}
+.dashboard-form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.dashboard-btn {
+  background-color: #D9C5AD; /* Warm Tan Accent button */
+  color: #232606; /* Deep Green text on button */
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+.dashboard-btn:hover {
+  background-color: #8C7569; /* Muted Brown on hover */
+  transform: translateY(-2px);
+}
+.dashboard-btn:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(217, 197, 173, 0.5); /* Warm Tan focus shadow */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 1rem;
+  }
+  .dashboard-shopkeepers li {
+    padding: 1rem;
+  }
+}

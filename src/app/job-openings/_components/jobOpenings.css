@@ -1,0 +1,50 @@
+.job-data-container {
+  padding: 20px;
+  background-color: #F2E8DC;  /* Beige Background for container */
+}
+
+.card {
+  border: 1px solid #D9C5AD;  /* Warm Tan Accent border */
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%; /* Ensures all cards are of the same height */
+  background-color: #FFFFFF; /* White background for cards */
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Black shadow for hover effect */
+}
+
+.card-body {
+  flex: 1; /* Makes the card body fill the available space */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-title {
+  font-weight: bold;
+  color: #232606; /* Deep Green for card titles */
+}
+
+.btn-danger {
+  background-color: #754E1A; /* Earthy Brown for button */
+  border: none;
+  transition: background-color 0.3s;
+}
+
+.btn-danger:hover {
+  background-color: #8C7569; /* Muted Brown on button hover */
+}
+
+.spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #F2E8DC; /* Beige Background for spinner container */
+}

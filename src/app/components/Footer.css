@@ -1,0 +1,95 @@
+footer.footer-dark {
+    background-color: #232606; /* Updated primary dark background */
+    color: #F2E8DC; /* Updated light text color for contrast */
+    padding: 20px;
+}
+
+footer .accordion-button {
+    background-color: #D9C5AD; /* Updated background color */
+    border: 1px solid #F2E8DC; /* Updated border matching light color */
+    color: #232606; /* Updated text color matching dark theme */
+    font-size: 1.125rem;
+    font-weight: 600;
+    border-radius: 0.25rem;
+    padding: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+footer .accordion-button:hover,
+footer .accordion-button:focus {
+    background-color: #F2E8DC; /* Lighter color for hover */
+    border-color: #232606; /* Darker border for focus */
+    color: #232606; /* Text color for hover */
+}
+
+footer .accordion-button:not(.collapsed) {
+    background-color: #F2E8DC; /* Updated background when not collapsed */
+    color: #232606; /* Updated darker text when not collapsed */
+}
+
+footer .accordion-body {
+    background-color: #F2E8DC; /* Updated light background */
+    color: #232606; /* Updated text color matching dark theme */
+    padding: 15px;
+    border-top: 1px solid #D9C5AD; /* Updated border matching theme */
+}
+
+footer .container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+footer .container a {
+    color: #D9C5AD; /* Updated accent color for links */
+    text-decoration: none;
+}
+
+footer .container a:hover {
+    text-decoration: underline;
+    color: #232606; /* Updated hover color to match theme */
+}
+
+@media (max-width: 768px) {
+    footer .accordion-button {
+        font-size: 1rem;
+        padding: 10px;
+    }
+
+    footer .accordion-body {
+        padding: 10px;
+    }
+}
+
+.highlight {
+    text-align: center;
+    font-weight: bold;
+    font-size: 34px;
+    color: #232606; /* Updated dark text from theme */
+    background-color: #D9C5AD; /* Updated accent background color */
+    padding: 5px;
+}
+
+.footer-link-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    color: #F2E8DC; /* Updated light color for footer links */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: #8C7569; /* Updated hover color */
+}
+
+.footer-copyright {
+    text-align: center;
+    color: #F2E8DC; /* Updated light text color */
+    font-size: 14px;
+    font-weight: 400;
+    margin-top: 20px;
+}

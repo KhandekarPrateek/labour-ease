@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #F2E8DC;  /* Beige Background */
+}
+
+.contact-container {
+    padding: 3rem;
+    background-color: #F2E8DC;  /* Beige Background */
+}
+
+.title {
+    color: #232606;  /* Deep Green for title */
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.display-4 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #232606;  /* Deep Green */
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+
+.contact-form {
+    background-color: #FFFFFF;  /* White background for form */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #D9C5AD;  /* Warm Tan Accent border */
+}
+
+.form-control {
+    font-size: 1.1rem;
+    padding: 1rem;
+    border: 1px solid #D9C5AD;  /* Warm Tan Accent for border */
+    color: #8C7569;  /* Muted Brown for text */
+    background-color: #F5F5F5;  /* Light background for input */
+}
+
+textarea.form-control {
+    resize: none;
+}
+
+.form-label {
+    color: #232606;  /* Deep Green for label */
+}
+
+.btn-primary {
+    background-color: #754E1A;  /* Earthy Brown for button */
+    border-color: #754E1A;
+    font-size: 1.1rem;
+    padding: 0.8rem 1.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #8C7569;  /* Muted Brown on hover */
+    border-color: #8C7569;
+}
+
+.form-control::placeholder {
+    color: #8C7569;  /* Muted Brown for placeholder */
+    opacity: 1;
+}
+
+.img-fluid {
+    margin-top: 2rem;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

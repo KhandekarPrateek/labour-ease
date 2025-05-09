@@ -1,0 +1,35 @@
+/* Navbar Styling */
+.navbar {
+    background-color: #232606 !important;/* Deep Green */
+    padding: 15px;
+    color: #FFFFFF; /* White Text */
+}
+
+.navbar .navbar-brand {
+    color: #FFFFFF; /* White Text */
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #FFFFFF; /* White Text */
+    margin-left: 20px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: #D9C5AD; /* Warm Tan Accent */
+}
+
+.navbar .navbar-nav .nav-link.active {
+    color: #D9C5AD; /* Warm Tan Accent for active link */
+}
+
+/* Optional: Update toggle icon color for visibility */
+.navbar-toggler-icon {
+    background-color: #FFFFFF; /* White */
+}
+

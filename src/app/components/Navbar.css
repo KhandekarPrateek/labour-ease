@@ -1,0 +1,49 @@
+.navbar {
+  background-color: #232606; /* Updated background color */
+  color: #F2E8DC; /* Updated light text color for contrast */
+  padding: 0.5rem 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #F2E8DC; /* Updated light color for brand text */
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #D9C5AD; /* Updated hover color for the brand */
+}
+
+.navbar-toggler {
+  background: none;
+  border: none;
+}
+
+.navbar-toggler-icon {
+  width: 24px;
+  height: 24px;
+  background: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="%23F2E8DC" viewBox="0 0 24 24"%3E%3Cpath stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /%3E%3C/svg%3E') center center no-repeat;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+.navbar-nav .nav-item {
+  margin: 0 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #F2E8DC; /* Updated light text color for nav links */
+}
+
+.nav-link:hover {
+  color: #8C7569; /* Updated hover color for nav links */
+}

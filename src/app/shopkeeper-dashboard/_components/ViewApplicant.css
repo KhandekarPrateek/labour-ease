@@ -1,0 +1,115 @@
+.view-applicants-container {
+  margin-top: 120px;
+}
+
+/* Section Title */
+.section-title {
+  text-align: center;
+  color: #232606; /* Deep Green */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* List Item Styling */
+.list-group-item {
+  padding: 15px;
+  background-color: #F2E8DC; /* Beige Background */
+  border-radius: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #8C7569; /* Muted Brown */
+  transition: transform 0.3s ease;
+}
+
+.list-group-item:hover {
+  transform: scale(1.02);
+  background-color: #D9C5AD; /* Warm Tan Accent */
+}
+
+/* Button Styling */
+.btn {
+  border-radius: 50px;
+  font-weight: bold;
+  padding: 8px 20px;
+  margin-top: 5%;
+}
+
+.btn-success {
+  background-color: #232606; /* Deep Green */
+  border-color: #232606;
+  transition: background-color 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #8C7569; /* Muted Brown */
+}
+
+.btn-danger {
+  background-color: #754E1A; /* Earthy Brown */
+  border-color: #754E1A;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #8C7569; /* Muted Brown */
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+/* Badge Styling */
+.badge-success {
+  background-color: #5cb85c;
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+.badge-danger {
+  background-color: #f44336;
+  color: white;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 15px;
+}
+
+/* Back Button Styling */
+.back-button {
+  margin-bottom: 20px;
+  font-weight: bold;
+  background-color: #232606; /* Deep Green */
+  border-color: #232606;
+}
+
+.back-button:hover {
+  background-color: #8C7569; /* Muted Brown */
+}
+
+/* Applicant Card Styling */
+.applicant-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #FFFFFF; /* White */
+  border-radius: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.applicant-card:hover {
+  background-color: #F2E8DC; /* Beige Background */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .section-title {
+      font-size: 1.5rem;
+  }
+}

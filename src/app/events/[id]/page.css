@@ -1,0 +1,112 @@
+/* EventDetails.css */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .event-details-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    max-width: 900px;
+    margin: auto;
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    min-height: 100vh; /* Ensure it takes at least full viewport height */
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #0070f3;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s, text-shadow 0.3s;
+  }
+  
+  .back-link:hover {
+    color: #005bb5;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .event-details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .event-image-wrapper {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+  
+  .event-content {
+    text-align: center;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .event-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+  }
+  
+  .event-date,
+  .event-location {
+    font-size: 1.2rem;
+    color: #555;
+    margin: 8px 0;
+  }
+  
+  .event-date strong,
+  .event-location strong {
+    color: #222;
+  }
+  
+  .event-content p {
+    font-size: 1.1rem;
+    color: #666;
+    line-height: 1.6;
+  }
+  
+  .event-content p:first-of-type {
+    margin-top: 15px;
+  }
+  
+  @media (min-width: 768px) {
+    .event-details-container {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+    }
+  
+    .event-image-wrapper {
+      max-width: 450px;
+    }
+  
+    .event-content {
+      text-align: left;
+    }
+  }
+  

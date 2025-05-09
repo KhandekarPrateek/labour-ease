@@ -1,0 +1,96 @@
+/* Center the outer container on the page */
+.ratings-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  height: 100vh; /* Full viewport height */
+  padding: 20px;
+  background-color: #F2E8DC;  /* Beige Background */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Container that holds content inside and provides padding */
+.ratings-inner-container {
+  width: 100%;
+  max-width: 800px; /* Limit the maximum width */
+  padding: 20px;
+  background-color: #FFFFFF; /* White background for inner content */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center; /* Centers the content inside */
+}
+
+/* Title styling */
+h2 {
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+  color: #232606;  /* Deep Green */
+  font-size: 1.8rem;
+}
+
+/* Styling for the list of ratings */
+.ratings-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 10px;
+}
+
+/* Rating card styling */
+.rating-card {
+  padding: 20px;
+  background-color: #FFFFFF; /* White background */
+  border: 1px solid #D9C5AD;  /* Warm Tan Accent border */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(to bottom right, #D9C5AD, #FFFFFF); /* Warm Tan Accent to White gradient */
+  color: #232606;  /* Deep Green for text */
+}
+
+/* Hover effect for rating cards */
+.rating-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Inner content inside each card */
+.rating-info h5 {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  color: #754E1A;  /* Earthy Brown for shopkeeper name */
+}
+
+.rating-info p {
+  margin: 5px 0;
+  color: #8C7569;  /* Muted Brown for text */
+  font-size: 1rem;
+}
+
+/* Add colors for the ratings */
+.rating-info p:first-of-type {
+  font-weight: bold;
+  color: #28a745;  /* Green color for ratings */
+}
+
+/* Styling for the 'No ratings found' message */
+p.no-ratings {
+  font-size: 1.1rem;
+  color: #8C7569;  /* Muted Brown for 'No ratings' message */
+  font-style: italic;
+  text-align: center;
+}
+
+/* Make the list responsive on smaller screens */
+@media (max-width: 768px) {
+  .ratings-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .ratings-list {
+    grid-template-columns: 1fr;
+  }
+}

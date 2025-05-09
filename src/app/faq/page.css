@@ -1,0 +1,109 @@
+/* ====== FAQ Section Start ====== */
+
+section {
+    position: relative;
+    z-index: 20;
+    overflow: hidden;
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    margin-top: 100px; /* added margin top */
+  }
+
+  
+  section.dark {
+    background-color: #dark;
+  }
+  
+  section > div {
+    max-width: 520px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  section > div > span {
+    display: block;
+    margin-bottom: 2px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #337ab7;
+  }
+  
+  section > div > h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #333;
+  }
+  
+  section > div > p {
+    font-size: 16px;
+    line-height: 24px;
+    color: #666;
+  }
+  
+  .accordion {
+    margin-top: 30px;
+    
+  }
+  
+  .accordion-item {
+    margin-bottom: 20px;
+    background-color: white;
+  }
+  
+  .accordion-header {
+    padding: 10px;
+    border-bottom: 1px solid #6c6c6c;
+    cursor: pointer;
+  }
+  
+  .accordion-header button {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .accordion-header button:focus {
+    box-shadow: none;
+  }
+  
+  .accordion-collapse {
+    padding: 10px;
+    border-bottom: 1px solid #777676;
+    
+  }
+  
+  .accordion-body {
+    padding: 10px;
+    font-size: 16px;
+    line-height: 24px;
+    
+    color: #666;
+  }
+  
+  .got-questions {
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  button.btn-outline-info {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 2px solid rgb(22, 20, 24);
+    border-radius: 5px;
+    background-color: blue;
+    color: #250729;
+    cursor: pointer;
+  }
+  
+  button.btn-outline-info:hover {
+    background-color: rgb(116, 116, 195);
+  }
+  
+  /* ====== FAQ Section End ====== */

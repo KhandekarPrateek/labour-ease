@@ -1,0 +1,208 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: #F2E8DC;  /* Beige Background */
+    color: #232606;  /* Deep Green for text */
+    font-family: Arial, sans-serif;
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Card Styling */
+.card {
+    width: 100%;
+    background-color: #FFFFFF;  /* White background for card */
+    border: 1px solid #D9C5AD;  /* Warm Tan Accent border */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image (Top) Styling */
+.card-img-top {
+    background-color: #8C7569;  /* Muted Brown background */
+    color: #FFFFFF;  /* White text */
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+/* Card Body Styling */
+.card-body {
+    padding: 25px;
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #232606;  /* Deep Green for card title */
+}
+
+.card-text {
+    font-size: 16px;
+    color: #8C7569;  /* Muted Brown for text */
+}
+
+/* Button Styling */
+.btn-primary {
+    background-color: #D9C5AD;  /* Warm Tan Accent button */
+    border: none;
+    color: #232606;  /* Deep Green text */
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #8C7569;  /* Muted Brown on hover */
+}
+
+.btn-secondary {
+    background-color: #F2E8DC;  /* Beige Background for secondary button */
+    border: none;
+    color: #232606;  /* Deep Green text */
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #D9C5AD;  /* Warm Tan Accent on hover */
+}
+
+/* Form Control Styling */
+.form-control {
+    border: 1px solid #8C7569;  /* Muted Brown border */
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.card-details {
+    margin-top: 10px;
+}
+
+.card-details .card-text {
+    font-size: 16px;
+    color: #8C7569;  /* Muted Brown */
+    margin-bottom: 10px;
+}
+
+.card-details .card-text strong {
+    color: #232606;  /* Deep Green for strong text */
+    font-weight: bold;
+}
+
+.card-details .card-text span {
+    color: #333;  /* Darker color for span */
+}
+
+.card-details .card-text:before {
+    color: #2596be;  /* Earthy Brown (to match theme) */
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Grid Styling */
+.d-grid {
+    margin-top: 10px;
+}
+
+/* Media Query for larger screens */
+@media (min-width: 768px) {
+    .container {
+        padding: 50px;
+    }
+
+    .card {
+        width: 500px;
+    }
+
+    .card-title {
+        font-size: 28px;
+    }
+
+    .card-text {
+        font-size: 18px;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+        font-size: 18px;
+        padding: 12px 24px;
+    }
+}
+
+/* Spinner (Loader) */
+.spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.loader {
+    border: 5px solid #F2E8DC;  /* Beige background for loader */
+    border-top: 5px solid #2596be;  /* Earthy Brown top */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Dropdown Styling */
+.skills-dropdown {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #D9C5AD;  /* Warm Tan Accent border */
+    padding: 10px;
+    background-color: #FFFFFF;  /* White dropdown background */
+    margin-top: 10px;
+    border-radius: 6px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.skills-dropdown .form-check {
+    margin-bottom: 12px;
+}
+
+.skills-dropdown p {
+    color: #8C7569;  /* Muted Brown text */
+    font-size: 14px;
+}

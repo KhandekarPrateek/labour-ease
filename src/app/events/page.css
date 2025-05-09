@@ -1,0 +1,115 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #F2E8DC;  /* Beige Background */
+  margin: 0;
+  padding: 0;
+}
+
+.events-wrapper {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #FFFFFF;  /* White background for the wrapper */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #232606;  /* Deep Green for title */
+  position: relative;
+  padding-bottom: 10px;
+}
+
+h2::after {
+  content: '';
+  width: 80px;
+  height: 4px;
+  background-color: #D9C5AD;  /* Warm Tan Accent */
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+.search-bar {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  font-size: 1rem;
+  border: 1px solid #8C7569;  /* Muted Brown for search input border */
+  border-radius: 5px;
+}
+
+.events-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.event-card {
+  display: flex;
+  width: 100%;
+  max-width: 560px;
+  background: #232606;  /* Deep Green for event card */
+  color: #FFFFFF;  /* White text color */
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.event-details {
+  flex: 1;
+  padding: 20px;
+}
+
+.event-details h3 {
+  font-size: 1.75rem;
+  margin-bottom: 10px;
+  color: #FFFFFF;  /* White text for event details */
+}
+
+.event-date,
+.event-location {
+  margin-bottom: 5px;
+  color: #D9C5AD;  /* Warm Tan Accent for date and location */
+}
+
+.event-image-wrapper {
+  width: 40%;
+  overflow: hidden;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.event-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover .event-image {
+  transform: scale(1.1);
+}
+
+a {
+  color: #D9C5AD;  /* Warm Tan Accent for link */
+  text-decoration: underline;
+  font-weight: bold;
+  margin-top: 10px;
+  display: inline-block;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #232606;  /* Deep Green for link hover */
+}

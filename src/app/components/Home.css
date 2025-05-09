@@ -1,0 +1,178 @@
+.container {
+  max-width: 100%;
+  padding: 0;
+  background-color: #F2E8DC; /* Updated Background */
+  color: #232606; /* Updated Text Color */
+}
+
+/* Header Section */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  margin-bottom: 40px; /* Add margin below header */
+}
+
+.text-container {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+}
+
+.text-container h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 0;
+  color: #232606; /* Updated Font Color */
+}
+
+.text-container p {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+  color: #232606; /* Updated Font Color */
+}
+
+.image-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  max-height: 400px; /* Adjust for better fit */
+}
+
+/* Job Slider Section */
+.job-slider-section {
+  margin-top: 60px; /* Increase space above Job Slider */
+}
+
+/* Popular Job Categories */
+.btn {
+  border-radius: 20px;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease;
+  color: #F2E8DC; /* Updated Button Text */
+  background-color: #232606; /* Updated Button Background */
+}
+
+.btn:hover {
+  background-color: #8C7569; /* Updated Hover Background */
+  color: #F2E8DC; /* Maintain consistent text color on hover */
+}
+
+
+.shadow-sm {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.popular{
+  margin-top: 50px;
+  transition: margin-top 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-container {
+    text-align: center;
+  }
+
+  .image-container {
+    order: -1; /* Move image below text on smaller screens */
+    margin-bottom: 20px; /* Add margin below image */
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    padding: 0 50px;
+  }
+}
+
+@media (max-width: 576px) {
+  .text-container h1 {
+    font-size: 2rem;
+  }
+
+  .text-container p {
+    font-size: 1rem;
+  }
+
+  .image-container img {
+    max-height: 300px; /* Adjust for smaller screens */
+  }
+}
+
+.image-container {
+  flex: 1;
+  padding: 20px;
+  position: relative;
+  perspective: 1000px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.image-wrapper {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  border-radius: 18px;
+  overflow: hidden;
+  padding: 3px; /* Space for gradient border */
+  background: radial-gradient(
+    circle 710px at 5.2% 7.2%,
+    rgba(217, 197, 173, 0.3) 0%, /* Updated Gradient Color */
+    rgba(217, 197, 173, 0.2) 7.5%, /* Updated Gradient Color */
+    rgba(140, 117, 105, 0.1) 44.7%, /* Updated Gradient Color */
+    transparent 80%
+  );
+}
+
+.image-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  padding: 3px;
+  background: radial-gradient(
+    circle 710px at 5.2% 7.2%,
+    rgba(217, 197, 173, 1) 0%, /* Updated Gradient Color */
+    rgba(217, 197, 173, 1) 7.5%, /* Updated Gradient Color */
+    rgba(140, 117, 105, 1) 44.7%, /* Updated Gradient Color */
+    transparent 80%
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+}
+
+/* Job Slider Section */
+.job-slider-section {
+  margin-top: 10px; /* Space above the Job Slider */
+  margin-bottom : 100px;
+  width: 100%; /* Ensure it spans full width of the container */
+  max-width: 1200px; /* Adjust maximum width for larger screens */
+  margin-left: auto; /* Center the slider */
+  margin-right: auto; /* Center the slider */
+  padding: 0 20px; /* Add padding for spacing */
+  height: 400px; /* Set the desired height */
+  display: flex; /* Ensure child elements align properly */
+  align-items: center; /* Vertically center the content */
+}
+        
+
+
